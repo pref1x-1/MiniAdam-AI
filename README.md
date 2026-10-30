@@ -16,12 +16,12 @@ Download the **Setup installer**, not the standalone application executable:
 
 [Download MINI ADAM Setup](https://github.com/pref1x-1/MiniAdam-AI/releases/latest/download/MiniAdam-Setup.exe)
 
-The website checks the latest GitHub Release and enables the download button only when an asset named `MiniAdam-Setup.exe` is attached. If the installer is not attached yet, the website directs visitors to the Releases page instead of displaying a broken download.
+The download site checks the latest GitHub Release and activates the download button only when an asset named `MiniAdam-Setup.exe` exists. Until the first installer asset is uploaded, visitors are sent to the Releases page.
 
 ## Install
 
 1. Download `MiniAdam-Setup.exe` from the official Releases page.
-2. Run the installer, read and accept the terms, choose the installation folder, and select shortcut options.
+2. Run the installer, read and accept the terms, choose an installation folder, and select shortcut options.
 3. Install and start [Ollama](https://ollama.com/download) separately.
 4. Launch MINI ADAM, complete onboarding, check your hardware, and choose a model.
 
@@ -33,11 +33,11 @@ The installer does **not** bundle Ollama or AI models. Model downloads require i
 - Chat history, search, editing, duplication, export, snapshots, and bookmarks.
 - Optional Adam Mode, language preferences, and persistent local memories.
 - Model discovery, download, selection, refresh, unload, and deletion.
-- File and image attachments; image analysis requires a compatible vision model.
+- File and image attachments; image understanding requires a compatible vision model.
 - Approval-based Agent file actions inside an approved workspace.
 - Windows System Tray, focus mode, keyboard shortcuts, and Nordic Aurora styling.
 
-Model features such as vision, thinking output, and response quality depend on the capabilities of the selected model. MINI ADAM is a desktop interface with an optional personality layer; it is not a newly fine-tuned foundation model.
+Model features such as vision, thinking output, and response quality depend on the selected model. MINI ADAM is a desktop interface with an optional personality layer; it is not a newly fine-tuned foundation model.
 
 ## Privacy and security
 
@@ -61,15 +61,14 @@ Verify in PowerShell:
 Get-FileHash .\\MiniAdam-Setup.exe -Algorithm SHA256
 ```
 
-This checksum applies only to the exact MINI ADAM 3.5.0 Setup build.
+This checksum applies only to this exact MINI ADAM 3.5.0 Setup build.
 
-## Publishing
+## Publishing the website and installer
 
-- The download site is in `docs/` and is deployed by GitHub Actions.
-- In repository **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source.
-- The latest Release must contain the setup file renamed to exactly `MiniAdam-Setup.exe`.
-- See [the Hebrew release upload guide](./RELEASE_UPLOAD_GUIDE_HE.md) and `scripts/Publish-Setup-Release.ps1`.
+The static website is stored in `docs/`. To publish it, open **Settings → Pages**, select **Deploy from a branch**, choose branch `main` and folder `/docs`, then save. No custom Pages Actions workflow is required.
+
+To publish the installer, follow [the Hebrew Release upload guide](./RELEASE_UPLOAD_GUIDE_HE.md) or run `scripts/Publish-Setup-Release.ps1` with GitHub CLI. The script verifies the checksum and uploads **only** the Setup installer under the asset name `MiniAdam-Setup.exe`.
 
 ## About
 
-Made by [Adam Marhasin (Pref1x)](https://github.com/pref1x-1). MINI ADAM is an independent project and is not affiliated with Ollama, Hugging Face, Microsoft, or model providers.
+Made by [Adam Marhasin (Pref1x)](https://github.com/pref1x-1). MINI ADAM is an independent project and is not affiliated with Ollama, Hugging Face, Microsoft, or any model provider.
