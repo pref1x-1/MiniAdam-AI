@@ -14,13 +14,13 @@ MINI ADAM מתחבר למודלים מקומיים דרך [Ollama](https://ollam
 
 יש להוריד את **קובץ המתקין Setup**, ולא את קובץ האפליקציה העצמאי:
 
-[הורדת MINI ADAM Setup](https://github.com/pref1x-1/MiniAdam-AI/releases/latest/download/MiniAdam-Setup.exe)
+[הורדת MINI ADAM Setup](https://github.com/pref1x-1/MiniAdam-AI/releases/download/App/MiniAdam-Setup3.5.0.1.exe)
 
-אתר ההורדה בודק את ה־GitHub Release האחרון ומפעיל את כפתור ההורדה רק כאשר מצורף אליו קובץ בשם המדויק `MiniAdam-Setup.exe`. עד שהמתקין יעלה, האתר מפנה לעמוד Releases.
+האתר מזהה אוטומטית קובץ מצורף ששמו מתחיל ב־`MiniAdam-Setup` ומסתיים ב־`.exe`. לכן אין צורך ששם הקובץ יהיה זהה בדיוק לשם קבוע.
 
 ## התקנה
 
-1. הורד את `MiniAdam-Setup.exe` מעמוד Releases הרשמי.
+1. הורד את קובץ ה־Setup מהאתר הרשמי או מעמוד Releases.
 2. הפעל את המתקין, קרא ואשר את התקנון, בחר תיקיית התקנה ואפשרויות קיצורי דרך.
 3. התקן והפעל את [Ollama](https://ollama.com/download) בנפרד.
 4. פתח את MINI ADAM, השלם onboarding, בדוק את החומרה ובחר מודל מתאים.
@@ -49,7 +49,7 @@ MINI ADAM מתחבר למודלים מקומיים דרך [Ollama](https://ollam
 
 ## אימות הקובץ — Setup 3.5.0
 
-SHA-256 הצפוי לקובץ המתקין בשם `MiniAdam-Setup.exe`:
+SHA-256:
 
 ```text
 f2eea32333e97af4d879c9b27296f7a80332a1d20b9feb2cd7d16df248dd357d
@@ -58,23 +58,14 @@ f2eea32333e97af4d879c9b27296f7a80332a1d20b9feb2cd7d16df248dd357d
 בדיקה ב־PowerShell:
 
 ```powershell
-Get-FileHash .\\MiniAdam-Setup.exe -Algorithm SHA256
+Get-FileHash .\\MiniAdam-Setup3.5.0.1.exe -Algorithm SHA256
 ```
 
-ה־checksum מתאים רק לבניית MINI ADAM 3.5.0 המסוימת.
+## פרסום
 
-## פרסום האתר והמתקין
+האתר קורא את ה־GitHub Release האחרון ובוחר נכס שהשם שלו מתחיל ב־`MiniAdam-Setup` ומסתיים ב־`.exe`. הקובץ הנוכחי הוא `MiniAdam-Setup3.5.0.1.exe`, תחת Release בשם `App`.
 
-קובצי האתר נמצאים בתיקיית `docs/`. כדי לפרסם את האתר:
-
-1. פתח במאגר **Settings → Pages**.
-2. תחת **Build and deployment**, בחר **Deploy from a branch**.
-3. בחר branch בשם `main` ותיקייה `/docs`.
-4. לחץ Save.
-
-אין צורך ב־GitHub Actions workflow מותאם לפרסום אתר סטטי מתיקיית `docs/`.
-
-כדי לפרסם את המתקין, פעל לפי [מדריך העלאת ה־Setup ל־Release](./RELEASE_UPLOAD_GUIDE_HE.md) או הרץ את `scripts/Publish-Setup-Release.ps1` עם GitHub CLI. הסקריפט מאמת SHA-256 ומעלה **רק** את קובץ ה־Setup בשם `MiniAdam-Setup.exe`.
+כדי לפרסם את האתר מתיקיית `docs/`, בחר ב־**Settings → Pages → Deploy from a branch → main → /docs**.
 
 ## אודות
 
