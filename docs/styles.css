@@ -780,3 +780,7 @@ html.a11y-readable-font .icon,html.a11y-readable-font .icon *{font-family:"Mater
  .site-footer,.site-header .nav-shell,.nav-star,.hero-stars{transition:none}
  .site-footer:hover{transform:none}
 }
+
+/* The floating navigation also applies to legal document pages. */
+.legal-main{padding-top:132px}
+@media(max-width:640px){.legal-main{padding-top:112px}}

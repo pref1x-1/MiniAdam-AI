@@ -126,7 +126,7 @@
     const url=available?releaseAsset.browser_download_url:releasesPage;
     downloadButton.href=url;
     finalDownload.href=url;
-    const version=available?((releaseAsset.name.match(/(\\d+\\.\\d+(?:\\.\\d+){1,2})/)||[])[1]||'SETUP'):'SETUP';
+    const version=available?((releaseAsset.name.match(/(\d+\.\d+(?:\.\d+){1,2})/)||[])[1]||'SETUP'):'SETUP';
     if(versionBadge)versionBadge.textContent='v'+version;
     const productVersion=document.getElementById('productVersionBadge');
     if(productVersion)productVersion.textContent='MINI ADAM '+version;
@@ -230,7 +230,7 @@
         '### Topic',topic,'',
         '### Message',message,'',
         '---','Sent through the MINI ADAM website contact form.'
-      ].join('\\n');
+      ].join('\n');
       const url='https://github.com/pref1x-1/MiniAdam-AI/issues/new?'+new URLSearchParams({title,body}).toString();
       window.location.assign(url);
     });
