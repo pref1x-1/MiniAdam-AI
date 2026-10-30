@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#121820">
-<meta name="description" content="MINI ADAM — סביבת AI מקומית ל-Windows. שיחות, זיכרון, ניהול מודלים וקבצים עם Ollama.">
+<meta name="description" content="MINI ADAM — a local AI desktop workspace for Ollama, with local chats, memory, models, and file tools.">
 <meta property="og:type" content="website"><meta property="og:title" content="MINI ADAM — Local AI, on your terms"><meta property="og:description" content="A personal local AI workspace for Windows.">
-<title>MINI ADAM — Local AI, on your terms</title>
+<title data-he="MINI ADAM — הבינה המקומית שלך" data-en="MINI ADAM — Local AI, on your terms">MINI ADAM — Local AI, on your terms</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400..800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0,0&icon_names=accessible,add,arrow_downward,attach_file,auto_awesome,chat_bubble,check,close,content_copy,contrast,database,desktop_windows,expand_more,folder_open,format_underlined,info,memory,menu,motion_photos_auto,open_in_new,psychology,refresh,remove,text_fields,verified_user,visibility&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0,0&icon_names=accessible,add,arrow_downward,arrow_forward,attach_file,auto_awesome,bug_report,chat_bubble,check,check_circle,close,code,content_copy,contrast,database,desktop_windows,download,expand_more,folder_open,format_underlined,forum,group,history,home,info,mail,memory,menu,motion_photos_auto,open_in_new,psychology,public,refresh,remove,star,text_fields,verified_user,visibility&display=block" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="./mark.svg">
-<link rel="stylesheet" href="./styles.css?v=4.1.3">
-<script defer src="./site.js?v=4.1.1"></script>
+<link rel="stylesheet" href="./styles.css?v=5.0.0">
+<script defer src="./site.js?v=5.0.0"></script>
 </head>
 <body>
 <a class="skip-link" href="#main" data-he="דלג לתוכן" data-en="Skip to content">דלג לתוכן</a>
@@ -23,15 +23,20 @@
       <span class="brand-copy"><b>MINI ADAM</b><small>LOCAL AI WORKSPACE</small></span>
     </a>
     <nav class="main-nav" id="siteNav" aria-label="Main navigation">
-      <a href="#experience" data-he="החוויה" data-en="Experience">החוויה</a>
-      <a href="#features" data-he="יכולות" data-en="Features">יכולות</a>
-      <a href="#how-it-works" data-he="איך מתחילים" data-en="Get started">איך מתחילים</a>
-      <a href="#faq" data-he="שאלות" data-en="FAQ">שאלות</a>
+      <a href="#features" data-he="יכולות" data-en="Features">Features</a>
+      <a href="#faq" data-he="שאלות" data-en="FAQ">FAQ</a>
+      <a href="./changelog.html" data-he="יומן שינויים" data-en="Changelog">Changelog</a>
+      <a href="./contact.html" data-he="יצירת קשר" data-en="Contact">Contact</a>
     </nav>
     <div class="nav-actions">
-      <button class="language-button" id="lang" type="button" aria-label="Switch to English">EN</button>
-      <a class="nav-download" href="#download"><span data-he="הורדה" data-en="Download">הורדה</span><span class="icon" aria-hidden="true">open_in_new</span></a>
-      <button class="menu-button" id="menuToggle" type="button" aria-label="פתח תפריט" aria-expanded="false" aria-controls="siteNav"><span class="icon" aria-hidden="true">menu</span></button>
+      <a class="nav-star" id="githubStarLink" href="https://github.com/pref1x-1/MiniAdam-AI" target="_blank" rel="noopener noreferrer" aria-label="MINI ADAM on GitHub">
+        <span class="icon" aria-hidden="true">star</span><b data-github-stars>2</b>
+      </a>
+      <button class="language-button" id="lang" type="button" aria-label="Switch to Hebrew">
+        <span class="icon" aria-hidden="true">public</span><span class="language-code">HE</span>
+      </button>
+      <a class="nav-download" href="./index.html#download"><span data-he="הורדה" data-en="Download">Download</span><span class="icon" aria-hidden="true">download</span></a>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="siteNav"><span class="icon" aria-hidden="true">menu</span></button>
     </div>
   </div>
 </header>
@@ -51,7 +56,8 @@
         <a class="button button-glass" href="#how-it-works"><span data-he="איך זה עובד" data-en="How it works">איך זה עובד</span><span class="icon" aria-hidden="true">open_in_new</span></a>
       </div>
       <div class="download-meta" id="downloadStatus" role="status" aria-live="polite" data-state="checking"><span class="status-indicator"></span><span data-he="בודק את המתקין הרשמי…" data-en="Checking the official installer…">בודק את המתקין הרשמי…</span></div>
-      <div class="hero-caption"><span data-he="נבנה עבור Windows" data-en="MADE FOR WINDOWS">נבנה עבור Windows</span><span class="caption-line"></span><span>MINI ADAM 3.5</span></div>
+      <a class="hero-stars" href="https://github.com/pref1x-1/MiniAdam-AI" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true">star</span><b data-github-stars>2</b><span data-he="כוכבים ב־GitHub" data-en="GitHub stars">GitHub stars</span></a>
+      <div class="hero-caption"><span data-he="נבנה עבור Windows" data-en="MADE FOR WINDOWS">נבנה עבור Windows</span><span class="caption-line"></span><span id="productVersionBadge">MINI ADAM 3.6.0</span></div>
     </div>
 
     <div class="hero-visual" data-reveal data-reveal-delay="120">
@@ -116,7 +122,7 @@
   </div>
 </section>
 
-<section class="features-section">
+<section class="features-section" id="features">
   <div class="container">
     <div class="section-heading" data-reveal><div><span class="section-eyebrow" data-he="כלים שנכנסים לתמונה" data-en="THE TOOLS YOU NEED">כלים שנכנסים לתמונה</span><h2 data-he="יותר ממה שרואים<br><em>במבט ראשון.</em>" data-en="More than meets<br><em>the first glance.</em>">יותר ממה שרואים<br><em>במבט ראשון.</em></h2></div><p data-he="פיצ׳רים שימושיים, בלי להעמיס על המסך. כל דבר במקום שלו — וכל פעולה במרחק קליק." data-en="Useful features without cluttering the screen. Everything in its place, every action within reach.">פיצ׳רים שימושיים, בלי להעמיס על המסך. כל דבר במקום שלו — וכל פעולה במרחק קליק.</p></div>
     <div class="feature-grid">
@@ -160,6 +166,25 @@
   </div>
 </section>
 
+<section class="integrity-section container" id="integrity">
+  <div class="integrity-panel" data-reveal>
+    <div class="integrity-copy">
+      <span class="section-eyebrow" data-he="בדיקת קובץ" data-en="DOWNLOAD VERIFICATION">DOWNLOAD VERIFICATION</span>
+      <h2 data-he="מאמתים לפני שמתקינים." data-en="Verify before you install.">Verify before you install.</h2>
+      <p data-he="השווה את קובץ ההתקנה שהורדת לגיבוב SHA-256 שפורסם לצד ה־Release האחרון ב־GitHub." data-en="Compare your downloaded installer with the SHA-256 digest published alongside the latest GitHub Release.">Compare your downloaded installer with the SHA-256 digest published alongside the latest GitHub Release.</p>
+      <div class="integrity-asset"><span class="icon" aria-hidden="true">download</span><span><small data-he="קובץ ההתקנה האחרון" data-en="LATEST INSTALLER">LATEST INSTALLER</small><b id="integrityAssetName">MiniAdam3.6.0-Setup.exe</b></span></div>
+    </div>
+    <div class="integrity-details">
+      <div class="integrity-hash-head"><span>SHA-256</span><button type="button" id="copyIntegrityHash" class="copy-hash-button"><span class="icon" aria-hidden="true">content_copy</span><span data-he="העתקה" data-en="Copy">Copy</span></button></div>
+      <code class="integrity-hash" id="integrityHash">5f67f9df2f5c9b74baff4eba8a9af5292b816df1ced23b0d965f4491bc000355</code>
+      <small class="integrity-command-label" data-he="בדיקה ב־PowerShell" data-en="VERIFY IN POWERSHELL">VERIFY IN POWERSHELL</small>
+      <code class="integrity-command" id="integrityCommand">Get-FileHash ".\MiniAdam3.6.0-Setup.exe" -Algorithm SHA256</code>
+      <p class="integrity-feedback" id="integrityFeedback" role="status" aria-live="polite" data-he="משווים את ערך Hash שמתקבל לערך שמוצג כאן." data-en="Compare the resulting hash with the value shown here.">Compare the resulting hash with the value shown here.</p>
+    </div>
+  </div>
+  <p class="integrity-disclaimer" data-he="התאמה של SHA-256 מאשרת שהקובץ תואם לגיבוב שפורסם. היא אינה מהווה חתימה דיגיטלית או הבטחה שהקובץ בטוח." data-en="A matching SHA-256 confirms that the file matches the published digest. It is not a digital signature or a guarantee that the software is safe.">A matching SHA-256 confirms that the file matches the published digest. It is not a digital signature or a guarantee that the software is safe.</p>
+</section>
+
 <section class="faq-section container" id="faq">
   <div class="section-heading faq-heading" data-reveal><div><span class="section-eyebrow" data-he="כדאי לדעת" data-en="GOOD TO KNOW">כדאי לדעת</span><h2 data-he="לפני שמתחילים." data-en="Before you begin.">לפני שמתחילים.</h2></div><p data-he="תשובות קצרות לשאלות הנפוצות על MINI ADAM." data-en="A few quick answers about MINI ADAM.">תשובות קצרות לשאלות הנפוצות על MINI ADAM.</p></div>
   <div class="faq-list" data-reveal>
@@ -178,14 +203,21 @@
 
 <footer class="site-footer">
   <div class="container footer-main">
-    <a class="brand" href="#top"><span class="brand-mark"><span>M</span><i></i></span><span class="brand-copy"><b>MINI ADAM</b><small>LOCAL AI WORKSPACE</small></span></a>
+    <div class="footer-brand">
+      <a class="brand" href="#top"><span class="brand-mark"><span>M</span><i></i></span><span class="brand-copy"><b>MINI ADAM</b><small>LOCAL AI WORKSPACE</small></span></a>
+      <p class="footer-tagline" data-he="AI מקומי. סביבת עבודה אחת. בשליטה שלך." data-en="Local AI. One focused workspace. On your terms.">Local AI. One focused workspace. On your terms.</p>
+    </div>
     <div class="footer-links">
-      <div><small data-he="מוצר" data-en="PRODUCT">מוצר</small><a href="#features" data-he="יכולות" data-en="Features">יכולות</a><a href="https://github.com/pref1x-1/MiniAdam-AI/releases" target="_blank" rel="noreferrer" data-he="הורדה" data-en="Download">הורדה</a><a href="https://ollama.com/download" target="_blank" rel="noreferrer">Ollama</a></div>
-      <div><small data-he="מידע משפטי" data-en="LEGAL">מידע משפטי</small><a href="./privacy.html" data-he="פרטיות" data-en="Privacy">פרטיות</a><a href="./terms.html" data-he="תנאי שימוש" data-en="Terms">תנאי שימוש</a><a href="./disclaimer.html" data-he="הסתייגות" data-en="Disclaimer">הסתייגות</a></div>
-      <div><small data-he="תמיכה" data-en="SUPPORT">תמיכה</small><a href="./accessibility.html" data-he="הצהרת נגישות" data-en="Accessibility">הצהרת נגישות</a><a href="./third-party.html" data-he="קרדיטים ורישיונות" data-en="Credits & licenses">קרדיטים ורישיונות</a><a href="https://github.com/pref1x-1/MiniAdam-AI/issues" target="_blank" rel="noreferrer" data-he="דיווח על בעיה" data-en="Report an issue">דיווח על בעיה</a></div>
+      <div><small data-he="המוצר" data-en="PRODUCT">PRODUCT</small><a href="#features" data-he="יכולות" data-en="Features">Features</a><a href="./changelog.html" data-he="יומן שינויים" data-en="Changelog">Changelog</a><a href="./index.html#download" data-he="הורדה" data-en="Download">Download</a><a href="https://ollama.com/download" target="_blank" rel="noopener noreferrer">Ollama</a></div>
+      <div><small data-he="קהילה" data-en="COMMUNITY">COMMUNITY</small><a href="https://github.com/pref1x-1/MiniAdam-AI" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true">code</span> GitHub</a><a href="https://github.com/pref1x-1/MiniAdam-AI/graphs/contributors" target="_blank" rel="noopener noreferrer" data-he="תורמים לפרויקט" data-en="Contributors">Contributors</a><span class="footer-link is-disabled" aria-disabled="true" title="Discord invitation has not been configured"><span class="icon" aria-hidden="true">forum</span><span data-he="Discord · ההזמנה תתווסף בקרוב" data-en="Discord · invite coming soon">Discord · invite coming soon</span></span></div>
+      <div><small data-he="תמיכה ומידע" data-en="SUPPORT & INFO">SUPPORT & INFO</small><a href="./contact.html" data-he="יצירת קשר" data-en="Contact">Contact</a><a href="./privacy.html" data-he="פרטיות" data-en="Privacy">Privacy</a><a href="./terms.html" data-he="תנאים" data-en="Terms">Terms</a><a href="./accessibility.html" data-he="נגישות" data-en="Accessibility">Accessibility</a><a href="./disclaimer.html" data-he="הסתייגות" data-en="Disclaimer">Disclaimer</a></div>
     </div>
   </div>
-  <div class="container footer-bottom"><span>© 2026 ADAM / PREF1X. <b data-he="כל הזכויות שמורות." data-en="All rights reserved.">כל הזכויות שמורות.</b></span><span data-he="MINI ADAM הוא פרויקט עצמאי ואינו קשור ל־Ollama או ל־Microsoft." data-en="MINI ADAM is an independent project and is not affiliated with Ollama or Microsoft.">MINI ADAM הוא פרויקט עצמאי ואינו קשור ל־Ollama או ל־Microsoft.</span><a href="#top" class="back-top"><span data-he="חזרה למעלה" data-en="Back to top">חזרה למעלה</span><span class="icon" aria-hidden="true">open_in_new</span></a></div>
+  <div class="container footer-bottom">
+    <span>© 2026 ADAM / PREF1X. <b data-he="כל הזכויות שמורות." data-en="All rights reserved.">All rights reserved.</b></span>
+    <span data-he="MINI ADAM הוא פרויקט עצמאי ואינו קשור ל־Ollama או ל־Microsoft." data-en="MINI ADAM is an independent project and is not affiliated with Ollama or Microsoft.">MINI ADAM is an independent project and is not affiliated with Ollama or Microsoft.</span>
+    <a href="#top" class="back-top"><span data-he="חזרה למעלה" data-en="Back to top">Back to top</span><span class="icon" aria-hidden="true">arrow_forward</span></a>
+  </div>
 </footer>
 <div class="a11y-root">
 <button class="a11y-trigger" id="a11yTrigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11yPanel" aria-label="פתח תפריט נגישות">
