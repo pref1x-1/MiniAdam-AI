@@ -143,7 +143,7 @@
       const open=menuToggle.getAttribute('aria-expanded')!=='true';
       menuToggle.setAttribute('aria-expanded',String(open));
       siteNav?.classList.toggle('is-open',open);
-      menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+      menuToggle.setAttribute('aria-label',language==='he'?(open?'סגור תפריט ניווט':'פתח תפריט ניווט'):(open?'Close navigation':'Open navigation'));
     });
     siteNav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
       siteNav.classList.remove('is-open');
