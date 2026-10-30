@@ -144,10 +144,15 @@
       menuToggle.setAttribute('aria-expanded',String(open));
       siteNav?.classList.toggle('is-open',open);
       menuToggle.setAttribute('aria-label',language==='he'?(open?'סגור תפריט ניווט':'פתח תפריט ניווט'):(open?'Close navigation':'Open navigation'));
+      const menuIcon=menuToggle.querySelector('use');
+      if(menuIcon)menuIcon.setAttribute('href',open?'#i-close':'#i-menu');
     });
     siteNav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
       siteNav.classList.remove('is-open');
       menuToggle?.setAttribute('aria-expanded','false');
+      menuToggle?.setAttribute('aria-label',language==='he'?'פתח תפריט ניווט':'Open navigation');
+      const menuIcon=menuToggle?.querySelector('use');
+      if(menuIcon)menuIcon.setAttribute('href','#i-menu');
     }));
   }
   function initAccessibility(){
@@ -181,7 +186,8 @@
     });
     document.addEventListener('pointerdown',event=>{
       if(a11yPanel.hidden)return;
-      if(!a11yPanel.contains(event.target)&&!a11yTrigger.contains(event.target))closeAccessibility(false);
+      if(a11yTrigger.contains(event.target))return;
+      if(!a11yPanel.contains(event.target))closeAccessibility(false);
     });
     loadAccessibility();
   }
