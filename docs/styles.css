@@ -346,6 +346,7 @@ html.a11y-readable-font,html.a11y-readable-font body,html.a11y-readable-font bod
 html.a11y-grayscale body>*:not(.a11y-root){filter:grayscale(1)!important}
 html.a11y-spacing body{line-height:2!important;letter-spacing:.02em!important}
 html.a11y-reduced-motion *,html.a11y-reduced-motion *:before,html.a11y-reduced-motion *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html.a11y-reduced-motion .device-stage,html.a11y-reduced-motion .experience-card,html.a11y-reduced-motion .glass-float,html.a11y-reduced-motion .privacy-glass{transform:none!important;animation:none!important}
 html.a11y-reduced-motion .js-ready [data-reveal]{opacity:1!important;transform:none!important}
 
 /* Legal pages */
