@@ -49,10 +49,6 @@ The current desktop release is for Windows only. macOS and Linux builds are not 
 - The Windows installer is not digitally code-signed. Review security warnings carefully; do not disable Microsoft Defender or bypass detections.
 - Verify the installer using the current SHA-256 value on the [official website](https://pref1x-1.github.io/MiniAdam-AI/#integrity).
 
-## Acknowledgements
-
-Development included AI-assisted work with ChatGPT (OpenAI), alongside human design, implementation, testing, and release decisions.
-
 ## Project
 
 Created by [Adam Marhasin (Pref1x)](https://github.com/pref1x-1). MINI ADAM is an independent project and is not affiliated with Ollama, Microsoft, or any model provider.
