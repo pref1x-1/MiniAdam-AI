@@ -50,11 +50,21 @@
     writeStorage('miniadam-site-language',language);
   }
 
+  function normalizeAccessibility(value){
+    const next={...defaults};
+    if(!value||typeof value!=='object'||Array.isArray(value))return next;
+    for(const key of Object.keys(defaults)){
+      if(key==='scale')continue;
+      next[key]=typeof value[key]==='boolean'?value[key]:false;
+    }
+    const raw=Number(value.scale);
+    const safe=Number.isFinite(raw)?raw:1;
+    next.scale=Math.min(1.5,Math.max(1,Math.round(safe*10)/10));
+    return next;
+  }
   function loadAccessibility(){
-    try{
-      const saved=JSON.parse(readStorage('miniadam-a11y','null'));
-      if(saved&&typeof saved==='object')accessibility={...defaults,...saved};
-    }catch{accessibility={...defaults}}
+    try{accessibility=normalizeAccessibility(JSON.parse(readStorage('miniadam-a11y','null')))}
+    catch{accessibility={...defaults}}
     applyAccessibility(false);
   }
   function saveAccessibility(){writeStorage('miniadam-a11y',JSON.stringify(accessibility))}
@@ -64,9 +74,13 @@
       grayscale:'a11y-grayscale',motion:'a11y-reduced-motion',spacing:'a11y-spacing'
     };
     Object.entries(classes).forEach(([key,className])=>root.classList.toggle(className,!!accessibility[key]));
-    const scale=Math.min(1.5,Math.max(1,Number(accessibility.scale)||1));
-    root.style.setProperty('--a11y-zoom',String(scale));
-    if(a11yScale)a11yScale.textContent=Math.round(scale*100)+'%';
+    accessibility.scale=Math.min(1.5,Math.max(1,Math.round((Number(accessibility.scale)||1)*10)/10));
+    root.style.setProperty('--a11y-zoom',String(accessibility.scale));
+    if(a11yScale)a11yScale.textContent=Math.round(accessibility.scale*100)+'%';
+    const decrease=a11yPanel?.querySelector('[data-a11y-action="decrease"]');
+    const increase=a11yPanel?.querySelector('[data-a11y-action="increase"]');
+    if(decrease)decrease.disabled=accessibility.scale<=1;
+    if(increase)increase.disabled=accessibility.scale>=1.5;
     document.querySelectorAll('[data-a11y-toggle]').forEach(button=>{
       const key=button.dataset.a11yToggle;
       button.setAttribute('aria-pressed',String(!!accessibility[key]));
@@ -163,8 +177,9 @@
     });
     a11yClose?.addEventListener('click',()=>closeAccessibility(true));
     a11yPanel.addEventListener('click',event=>{
-      const toggle=event.target.closest('[data-a11y-toggle]');
-      const action=event.target.closest('[data-a11y-action]');
+      const target=event.target instanceof Element?event.target:null;
+      const toggle=target?.closest('[data-a11y-toggle]');
+      const action=target?.closest('[data-a11y-action]');
       if(toggle){
         const key=toggle.dataset.a11yToggle;
         if(Object.prototype.hasOwnProperty.call(accessibility,key)){
@@ -174,15 +189,28 @@
       }
       if(action){
         switch(action.dataset.a11yAction){
-          case 'increase':accessibility.scale=Math.min(1.5,Math.round((accessibility.scale+.1)*100)/100);break;
-          case 'decrease':accessibility.scale=Math.max(1,Math.round((accessibility.scale-.1)*100)/100);break;
+          case 'increase':accessibility.scale=Math.min(1.5,Math.round((accessibility.scale+.1)*10)/10);break;
+          case 'decrease':accessibility.scale=Math.max(1,Math.round((accessibility.scale-.1)*10)/10);break;
           case 'reset':accessibility={...defaults};break;
         }
         applyAccessibility();
       }
     });
     document.addEventListener('keydown',event=>{
-      if(event.key==='Escape'&&!a11yPanel.hidden)closeAccessibility(true);
+      if(a11yPanel.hidden)return;
+      if(event.key==='Escape'){
+        event.preventDefault();
+        closeAccessibility(true);
+        return;
+      }
+      if(event.key!=='Tab')return;
+      const focusable=[...a11yPanel.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),[tabindex]:not([tabindex="-1"])')]
+        .filter(el=>!el.hidden&&el.getAttribute('aria-hidden')!=='true');
+      if(!focusable.length){event.preventDefault();a11yPanel.focus();return}
+      const first=focusable[0],last=focusable[focusable.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+      else if(!a11yPanel.contains(document.activeElement)){event.preventDefault();first.focus()}
     });
     document.addEventListener('pointerdown',event=>{
       if(a11yPanel.hidden)return;
