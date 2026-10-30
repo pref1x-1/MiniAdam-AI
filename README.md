@@ -8,6 +8,7 @@ MINI ADAM connects to local models through [Ollama](https://ollama.com), with a 
 - **GitHub Releases:** https://github.com/pref1x-1/MiniAdam-AI/releases
 - **Ollama:** https://ollama.com/download
 - **Version:** 3.5.0 — Nordic Aurora
+- **Legal & accessibility:** [Privacy](./docs/privacy.html) · [Terms](./docs/terms.html) · [Disclaimer](./docs/disclaimer.html) · [Accessibility](./docs/accessibility.html) · [Third-party notices](./docs/third-party.html)
 - **Platform:** Windows 10/11 · x64
 
 ## Download
@@ -28,6 +29,9 @@ The website automatically finds an uploaded installer asset whose filename start
 The installer does **not** bundle Ollama or AI models. Model downloads require internet access and disk space.
 
 ## Features
+
+The website uses a refined glass-style interface, responsive 3D product preview, Hebrew/English language switching, and an accessibility panel with text scaling, contrast, link highlighting, readable font, grayscale, spacing, and reduced-motion options.
+
 
 - Local chat with Ollama models and streaming responses.
 - Chat history, search, editing, duplication, export, snapshots, and bookmarks.
