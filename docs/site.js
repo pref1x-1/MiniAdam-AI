@@ -64,7 +64,7 @@
       grayscale:'a11y-grayscale',motion:'a11y-reduced-motion',spacing:'a11y-spacing'
     };
     Object.entries(classes).forEach(([key,className])=>root.classList.toggle(className,!!accessibility[key]));
-    const scale=Math.min(1.35,Math.max(1,Number(accessibility.scale)||1));
+    const scale=Math.min(1.5,Math.max(1,Number(accessibility.scale)||1));
     root.style.setProperty('--a11y-zoom',String(scale));
     if(a11yScale)a11yScale.textContent=Math.round(scale*100)+'%';
     document.querySelectorAll('[data-a11y-toggle]').forEach(button=>{
@@ -144,15 +144,15 @@
       menuToggle.setAttribute('aria-expanded',String(open));
       siteNav?.classList.toggle('is-open',open);
       menuToggle.setAttribute('aria-label',language==='he'?(open?'סגור תפריט ניווט':'פתח תפריט ניווט'):(open?'Close navigation':'Open navigation'));
-      const menuIcon=menuToggle.querySelector('use');
-      if(menuIcon)menuIcon.setAttribute('href',open?'#i-close':'#i-menu');
+      const menuIcon=menuToggle.querySelector('.icon');
+      if(menuIcon)menuIcon.textContent=open?'close':'menu';
     });
     siteNav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
       siteNav.classList.remove('is-open');
       menuToggle?.setAttribute('aria-expanded','false');
       menuToggle?.setAttribute('aria-label',language==='he'?'פתח תפריט ניווט':'Open navigation');
-      const menuIcon=menuToggle?.querySelector('use');
-      if(menuIcon)menuIcon.setAttribute('href','#i-menu');
+      const menuIcon=menuToggle?.querySelector('.icon');
+      if(menuIcon)menuIcon.textContent='menu';
     }));
   }
   function initAccessibility(){
@@ -174,7 +174,7 @@
       }
       if(action){
         switch(action.dataset.a11yAction){
-          case 'increase':accessibility.scale=Math.min(1.35,Math.round((accessibility.scale+.1)*100)/100);break;
+          case 'increase':accessibility.scale=Math.min(1.5,Math.round((accessibility.scale+.1)*100)/100);break;
           case 'decrease':accessibility.scale=Math.max(1,Math.round((accessibility.scale-.1)*100)/100);break;
           case 'reset':accessibility={...defaults};break;
         }

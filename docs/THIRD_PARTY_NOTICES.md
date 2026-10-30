@@ -1,23 +1,25 @@
 # Third-party notices
 
-## Lucide Icons
+## Assistant typeface
 
-This website uses a small selection of Lucide icon paths.
+This website uses the Assistant typeface for Hebrew and Latin text. It is requested from Google Fonts and is not bundled or redistributed by this repository.
 
-Lucide is an open-source icon library:
-https://lucide.dev/
+Assistant is distributed under the SIL Open Font License 1.1 (OFL-1.1).
 
-Icons are licensed under the ISC License.
+- Google Fonts family: https://fonts.google.com/specimen/Assistant
+- Google Fonts metadata and license: https://github.com/google/fonts/blob/main/ofl/assistant/METADATA.pb
 
-Copyright (c) 2026 Lucide Icons and Contributors
+## Material Symbols Rounded
 
-Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+This website uses a selected set of Material Symbols Rounded ligatures as an icon font, loaded from Google Fonts. The icons are not embedded as individual SVG assets.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+Material Symbols are licensed under the Apache License 2.0.
 
-## Almoni / Fontbit
+- Google Developers documentation: https://developers.google.com/fonts/docs/material_symbols
+- Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0
 
-The website references Almoni / Fontbit family names in its CSS font stack only. No commercial font files are included or redistributed. Embedding the font as a live webfont requires an appropriate web license from the rights holder. See:
+## Google Fonts
 
-- https://new.fontbit.co.il/%D7%9E%D7%99%D7%93%D7%A2-%D7%A2%D7%9C-%D7%A1%D7%95%D7%92%D7%99-%D7%94%D7%A8%D7%99%D7%A9%D7%99%D7%95%D7%A0%D7%95%D7%AA/
-- https://alefalefalef.co.il/resources/licenses/
+Google Fonts serves the typography and icon font resources used by this website. Requests for those resources are sent to Google Fonts when the pages are loaded. See Google's privacy policy:
+
+https://policies.google.com/privacy
