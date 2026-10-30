@@ -1,64 +1,297 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#121820">
-<meta name="description" content="MINI ADAM — סביבת AI מקומית ל-Windows. מדריך התקנה, Ollama, מודלים וזיכרון מקומי.">
-<meta property="og:title" content="MINI ADAM — Local AI for Windows">
-<meta property="og:description" content="Your local AI workspace. Powered by Ollama.">
-<title>MINI ADAM — Local AI for Windows</title>
-<link rel="icon" type="image/svg+xml" href="./mark.svg"><link rel="stylesheet" href="./styles.css"><script defer src="./app.js?v=3.5.1"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121820">
+  <meta name="description" content="MINI ADAM — סביבת AI מקומית ל-Windows. שיחות, זיכרון, ניהול מודלים וקבצים, עם Ollama.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MINI ADAM — Local AI, on your terms">
+  <meta property="og:description" content="Your local AI workspace for Windows. Powered by Ollama.">
+  <meta property="og:url" content="https://pref1x-1.github.io/MiniAdam-AI/">
+  <title>MINI ADAM — Local AI, on your terms</title>
+  <link rel="icon" type="image/svg+xml" href="./mark.svg">
+  <link rel="stylesheet" href="./styles.css?v=3.6.0">
+  <script defer src="./app.js?v=3.6.0"></script>
 </head>
 <body>
-<a class="skip" href="#main" data-he="דלג לתוכן" data-en="Skip to content">דלג לתוכן</a>
-<header class="top"><div class="wrap nav">
-<a class="brand" href="#top"><span class="mark">M<i></i></span><span><b>MINI ADAM</b><small data-he="המחשב שלך. ה־AI שלך." data-en="Your machine. Your AI.">המחשב שלך. ה־AI שלך.</small></span></a>
-<nav><a href="#features" data-he="יכולות" data-en="Features">יכולות</a><a href="#install" data-he="התקנה" data-en="Install">התקנה</a><a href="#faq" data-he="שאלות נפוצות" data-en="FAQ">שאלות נפוצות</a><a href="https://github.com/pref1x-1/MiniAdam-AI" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
-<div class="actions"><button id="lang" type="button">EN</button><a class="top-cta" href="#download" data-he="הורדה" data-en="Download">הורדה</a></div>
-</div></header>
-<main id="main">
-<section class="hero wrap" id="top">
-<div class="hero-copy">
-<div class="eyebrow"><span></span><span data-he="סביבת AI מקומית ל־Windows" data-en="Local AI workspace for Windows">סביבת AI מקומית ל־Windows</span><b>v3.5.0</b></div>
-<h1 data-he="ה־AI שלך.<br><em>במחשב שלך.</em>" data-en="Your AI.<br><em>On your machine.</em>">ה־AI שלך.<br><em>במחשב שלך.</em></h1>
-<p data-he="MINI ADAM מחבר אותך למודלים מקומיים דרך Ollama, עם סביבת שיחה מסודרת, זיכרון אישי וכלים שימושיים — בחוויית Desktop ממוקדת." data-en="MINI ADAM connects you to local models through Ollama, with organized chats, personal memory, and practical tools — in a focused desktop experience.">MINI ADAM מחבר אותך למודלים מקומיים דרך Ollama, עם סביבת שיחה מסודרת, זיכרון אישי וכלים שימושיים — בחוויית Desktop ממוקדת.</p>
-<div class="hero-buttons" id="download"><a class="button primary" id="downloadButton" href="https://github.com/pref1x-1/MiniAdam-AI/releases" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 18v2h16v-2"/></svg><span data-he="הורדת MINI ADAM Setup" data-en="Download MINI ADAM Setup">הורדת MINI ADAM Setup</span></a><a class="button secondary" href="#install" data-he="למדריך ההתקנה ←" data-en="Installation guide →">למדריך ההתקנה ←</a></div>
-<p class="download-state" id="downloadStatus" aria-live="polite" data-he="בודק את זמינות המתקין ב־GitHub Releases…" data-en="Checking GitHub Releases for the installer…">בודק את זמינות המתקין ב־GitHub Releases…</p>
-</div>
-<aside class="product"><div class="product-top"><span>DESKTOP EDITION</span><b>● LOCAL FIRST</b></div><div class="emblem">M<i></i></div><h2>MINI ADAM</h2><p data-he="סביבת עבודה למודלים מקומיים — שיחות, זיכרון, מודלים וקבצים במקום אחד." data-en="A focused workspace for local models — chats, memory, models, and files in one place.">סביבת עבודה למודלים מקומיים — שיחות, זיכרון, מודלים וקבצים במקום אחד.</p><hr><dl><div><dt data-he="פלטפורמה" data-en="Platform">פלטפורמה</dt><dd>Windows 10/11 · x64</dd></div><div><dt data-he="מנוע מודלים" data-en="Model engine">מנוע מודלים</dt><dd>Ollama</dd></div><div><dt data-he="שפת עיצוב" data-en="Design system">שפת עיצוב</dt><dd>Nordic Aurora</dd></div></dl><footer><span></span><label data-he="המודלים רצים מקומית במחשב שלך" data-en="Models run locally on your PC">המודלים רצים מקומית במחשב שלך</label></footer></aside>
-</section>
-<section class="facts wrap"><div><b>01</b><span data-he="עיבוד מקומי עם Ollama" data-en="Local inference with Ollama">עיבוד מקומי עם Ollama</span></div><div><b>02</b><span data-he="נתונים נשמרים במחשב" data-en="Data stored on your PC">נתונים נשמרים במחשב</span></div><div><b>03</b><span data-he="עברית ואנגלית" data-en="Hebrew and English">עברית ואנגלית</span></div><div><b>04</b><span data-he="אפליקציית Windows" data-en="Windows desktop app">אפליקציית Windows</span></div></section>
-<section class="section wrap" id="features">
-<div class="heading"><div><label data-he="מה יש בפנים" data-en="WHAT'S INCLUDED">מה יש בפנים</label><h2 data-he="כל מה שצריך. בלי רעש." data-en="Everything you need. Nothing noisy.">כל מה שצריך. בלי רעש.</h2></div><p data-he="ממשק Desktop ממוקד, שמרכז את העבודה עם המודלים והמידע שלך." data-en="A focused desktop interface for working with your models and information.">ממשק Desktop ממוקד, שמרכז את העבודה עם המודלים והמידע שלך.</p></div>
-<div class="grid">
-<article><i class="ic">01</i><h3 data-he="שיחות מסודרות" data-en="Organized chats">שיחות מסודרות</h3><p data-he="היסטוריה, חיפוש, עריכה, שכפול, ייצוא וניהול שיחות מתוך תפריט הפעולות." data-en="History, search, editing, duplication, export, and chat actions.">היסטוריה, חיפוש, עריכה, שכפול, ייצוא וניהול שיחות מתוך תפריט הפעולות.</p></article>
-<article><i class="ic">02</i><h3 data-he="זיכרון אישי" data-en="Personal memory">זיכרון אישי</h3><p data-he="זיכרונות מקומיים שאפשר לבדוק, לערוך ולמחוק. Adam Mode נשאר אפשרות לבחירתך." data-en="Local memories you can review, edit, and delete. Adam Mode stays optional.">זיכרונות מקומיים שאפשר לבדוק, לערוך ולמחוק. Adam Mode נשאר אפשרות לבחירתך.</p></article>
-<article><i class="ic">03</i><h3 data-he="ניהול מודלים" data-en="Model management">ניהול מודלים</h3><p data-he="בדיקת Ollama, בחירת מודל, הורדה, רענון, פריקה ומחיקה מתוך הממשק." data-en="Detect Ollama, select, download, refresh, unload, and delete models.">בדיקת Ollama, בחירת מודל, הורדה, רענון, פריקה ומחיקה מתוך הממשק.</p></article>
-<article><i class="ic">04</i><h3 data-he="קבצים ותמונות" data-en="Files and images">קבצים ותמונות</h3><p data-he="צירוף קבצים ותמונות. ניתוח תמונות דורש מודל Vision תואם." data-en="Attach files and images. Image analysis requires a compatible vision model.">צירוף קבצים ותמונות. ניתוח תמונות דורש מודל Vision תואם.</p></article>
-<article><i class="ic">05</i><h3 data-he="Agent באישור" data-en="Approval-based Agent">Agent באישור</h3><p data-he="פעולות קבצים באזור עבודה מורשה, עם בקשת אישור לפני ביצוע." data-en="File actions inside an approved workspace, with confirmation before execution.">פעולות קבצים באזור עבודה מורשה, עם בקשת אישור לפני ביצוע.</p></article>
-<article><i class="ic">06</i><h3 data-he="חוויית Desktop" data-en="Desktop experience">חוויית Desktop</h3><p data-he="System Tray, מצב ריכוז, קיצורי מקלדת ועיצוב Nordic Aurora." data-en="System Tray, focus mode, keyboard shortcuts, and Nordic Aurora styling.">System Tray, מצב ריכוז, קיצורי מקלדת ועיצוב Nordic Aurora.</p></article>
-</div>
-</section>
-<section class="install" id="install"><div class="wrap section">
-<div class="heading"><div><label data-he="מתחילים לעבוד" data-en="GET STARTED">מתחילים לעבוד</label><h2 data-he="התקנה בארבעה צעדים." data-en="Setup in four steps.">התקנה בארבעה צעדים.</h2></div><p data-he="ה־Setup מתקין את MINI ADAM. את Ollama והמודלים מתקינים בנפרד." data-en="Setup installs MINI ADAM. Install Ollama and models separately.">ה־Setup מתקין את MINI ADAM. את Ollama והמודלים מתקינים בנפרד.</p></div>
-<div class="steps">
-<article><b>01</b><div><h3 data-he="מורידים את ה־Setup" data-en="Download the Setup">מורידים את ה־Setup</h3><p data-he="הורד את המתקין מה־GitHub Release הרשמי." data-en="Download the installer from the official GitHub Release.">הורד את המתקין מה־GitHub Release הרשמי.</p></div></article>
-<article><b>02</b><div><h3 data-he="מריצים ומגדירים" data-en="Run and configure">מריצים ומגדירים</h3><p data-he="מאשרים את התקנון, בוחרים תיקייה ומגדירים קיצורי דרך." data-en="Accept the terms, choose a folder, and set shortcut options.">מאשרים את התקנון, בוחרים תיקייה ומגדירים קיצורי דרך.</p></div></article>
-<article><b>03</b><div><h3 data-he="מתקינים Ollama" data-en="Install Ollama">מתקינים Ollama</h3><p data-he="התקן והפעל את Ollama בנפרד. המתקין אינו מתקין אותו." data-en="Install and start Ollama separately. The installer does not include it.">התקן והפעל את Ollama בנפרד. המתקין אינו מתקין אותו.</p><a href="https://ollama.com/download" target="_blank" rel="noreferrer" data-he="הורדת Ollama ↗" data-en="Download Ollama ↗">הורדת Ollama ↗</a></div></article>
-<article><b>04</b><div><h3 data-he="בוחרים מודל ומתחילים" data-en="Choose a model and start">בוחרים מודל ומתחילים</h3><p data-he="השלם onboarding, בדוק חומרה ובחר מודל מתאים למחשב." data-en="Complete onboarding, check your hardware, and choose a model for your PC.">השלם onboarding, בדוק חומרה ובחר מודל מתאים למחשב.</p></div></article>
-</div>
-<div class="note" data-he="הורדת מודלים דורשת אינטרנט ונפח אחסון. גודל המודל משפיע על המהירות ועל צריכת הזיכרון." data-en="Model downloads require internet access and disk space. Model size affects speed and memory use.">הורדת מודלים דורשת אינטרנט ונפח אחסון. גודל המודל משפיע על המהירות ועל צריכת הזיכרון.</div>
-</div></section>
-<section class="requirements wrap"><div><label data-he="לפני שמתקינים" data-en="BEFORE INSTALLING">לפני שמתקינים</label><h2 data-he="דרישות מערכת" data-en="System requirements">דרישות מערכת</h2><p data-he="המתקין אינו כולל מודל AI. בדוק שהמחשב מתאים למודל שתרצה להריץ." data-en="The installer does not include an AI model. Make sure your PC can run the model you choose.">המתקין אינו כולל מודל AI. בדוק שהמחשב מתאים למודל שתרצה להריץ.</p></div><ul><li data-he="Windows 10 או 11, 64-bit" data-en="Windows 10 or 11, 64-bit">Windows 10 או 11, 64-bit</li><li data-he="Ollama מותקן ופועל" data-en="Ollama installed and running">Ollama מותקן ופועל</li><li data-he="Microsoft WebView2 Runtime" data-en="Microsoft WebView2 Runtime">Microsoft WebView2 Runtime</li><li data-he="מקום פנוי למודל שתבחר" data-en="Free storage for your selected model">מקום פנוי למודל שתבחר</li></ul></section>
-<section class="section wrap faq" id="faq"><div class="heading"><div><label data-he="שאלות נפוצות" data-en="FAQ">שאלות נפוצות</label><h2 data-he="לפני שמתחילים." data-en="Before you begin.">לפני שמתחילים.</h2></div></div>
-<details><summary data-he="האם MINI ADAM מתקין את Ollama?" data-en="Does MINI ADAM install Ollama?">האם MINI ADAM מתקין את Ollama?</summary><p data-he="לא. מתקינים את Ollama בנפרד מהאתר הרשמי." data-en="No. Install Ollama separately from its official website.">לא. מתקינים את Ollama בנפרד מהאתר הרשמי.</p></details>
-<details><summary data-he="האם השיחות נשלחות לענן?" data-en="Are chats sent to the cloud?">האם השיחות נשלחות לענן?</summary><p data-he="בשימוש במודל Ollama מקומי, העיבוד מתבצע במחשב שלך והנתונים נשמרים מקומית. הורדות ועדכונים דורשים אינטרנט." data-en="With a local Ollama model, inference runs on your PC and data is stored locally. Downloads and updates require internet.">בשימוש במודל Ollama מקומי, העיבוד מתבצע במחשב שלך והנתונים נשמרים מקומית. הורדות ועדכונים דורשים אינטרנט.</p></details>
-<details><summary data-he="האם Adam Mode חייב להיות מופעל?" data-en="Do I have to enable Adam Mode?">האם Adam Mode חייב להיות מופעל?</summary><p data-he="לא. אפשר להפעיל או לכבות בכל שיחה ולבחור ברירת מחדל בהגדרות." data-en="No. Toggle it per chat or choose a default in Settings.">לא. אפשר להפעיל או לכבות בכל שיחה ולבחור ברירת מחדל בהגדרות.</p></details>
-<details><summary data-he="למה Windows עשוי להציג אזהרת אבטחה?" data-en="Why might Windows show a security warning?">למה Windows עשוי להציג אזהרת אבטחה?</summary><p data-he="המתקין אינו חתום דיגיטלית. אין לעקוף זיהוי של Defender או להוסיף חריגות. הורד רק מהמקור הרשמי ואמת SHA-256." data-en="The installer is unsigned. Do not bypass Defender detections or add exclusions. Download only from the official source and verify the SHA-256.">המתקין אינו חתום דיגיטלית. אין לעקוף זיהוי של Defender או להוסיף חריגות. הורד רק מהמקור הרשמי ואמת SHA-256.</p></details>
-<details><summary data-he="האם המודלים כלולים במתקין?" data-en="Are models included?">האם המודלים כלולים במתקין?</summary><p data-he="לא. המתקין כולל את MINI ADAM בלבד. מורידים מודלים בנפרד לפי החומרה והשטח הפנוי." data-en="No. The installer includes MINI ADAM only. Download models separately according to your hardware and free storage.">לא. המתקין כולל את MINI ADAM בלבד. מורידים מודלים בנפרד לפי החומרה והשטח הפנוי.</p></details>
-</section>
-<section class="final wrap"><div><label data-he="MINI ADAM · WINDOWS" data-en="MINI ADAM · WINDOWS">MINI ADAM · WINDOWS</label><h2 data-he="מוכן ל־AI מקומי?" data-en="Ready for local AI?">מוכן ל־AI מקומי?</h2><p data-he="התחל מהמתקין הרשמי, התקן Ollama ובחר מודל שמתאים למחשב." data-en="Start with the official installer, install Ollama, and choose a model that fits your PC.">התחל מהמתקין הרשמי, התקן Ollama ובחר מודל שמתאים למחשב.</p></div><a class="button primary" href="https://github.com/pref1x-1/MiniAdam-AI/releases" id="finalDownload" target="_blank" rel="noreferrer" data-he="למעבר להורדה ↗" data-en="Go to download ↗">למעבר להורדה ↗</a></section>
-</main>
-<footer class="footer"><div class="wrap foot"><a class="brand" href="#top"><span class="mark">M<i></i></span><span><b>MINI ADAM</b><small>Local AI. Your workflow.</small></span></a><div><a href="https://github.com/pref1x-1/MiniAdam-AI" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://ollama.com/download" target="_blank" rel="noreferrer">Ollama ↗</a><a href="https://github.com/pref1x-1/MiniAdam-AI/releases" target="_blank" rel="noreferrer" data-he="גרסאות" data-en="Releases">גרסאות</a></div><p data-he="נוצר על ידי Adam / Pref1x. MINI ADAM הוא פרויקט עצמאי." data-en="Made by Adam / Pref1x. MINI ADAM is an independent project.">נוצר על ידי Adam / Pref1x. MINI ADAM הוא פרויקט עצמאי.</p></div></footer>
-</main>
-</body></html>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M17 2v2M17 20v2M7 2v2M7 20v2M2 12h2M2 7h2M2 17h2M20 12h2M20 7h2M20 17h2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.7 6.3A3 3 0 1 0 12 5a3 3 0 1 0-5.7 1.3"/><path d="M18 5.1a4 4 0 0 1 2.5 5.8"/><path d="M18 18a4 4 0 0 0 2-7.5"/><path d="M20 17.5a4 4 0 1 1-8 .5 4 4 0 1 1-8-.5"/><path d="M6 18a4 4 0 0 1-2-7.5"/><path d="M6 5.1a4 4 0 0 0-2.5 5.8"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M22 17a2 2 0 0 1-2 2H6.8a2 2 0 0 0-1.4.6l-2.2 2.2a.7.7 0 0 1-1.2-.5V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9L9.6 3.9A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></symbol>
+    <symbol id="i-paperclip" viewBox="0 0 24 24"><path d="m16 6-8.4 8.6a2 2 0 0 0 2.8 2.8l8.4-8.6a4 4 0 1 0-5.7-5.7l-8.4 8.6a6 6 0 1 0 8.5 8.5l8.4-8.6"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-memory" viewBox="0 0 24 24"><path d="M12 12v-2M12 18v-2M16 12v-2M16 18v-2M2 11h1.5M20 18v-2M20.5 11H22M4 18v-2M8 12v-2M8 18v-2"/><rect x="2" y="6" width="20" height="10" rx="2"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="M12 19h8"/><path d="m4 17 6-6-6-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11 2.8a1 1 0 0 1 2 0l1.1 5.6a2 2 0 0 0 1.6 1.6l5.5 1a1 1 0 0 1 0 2l-5.5 1a2 2 0 0 0-1.6 1.6l-1.1 5.6a1 1 0 0 1-2 0l-1.1-5.6a2 2 0 0 0-1.6-1.6l-5.5-1a1 1 0 0 1 0-2l5.5-1a2 2 0 0 0 1.6-1.6z"/><path d="M20 2v4M22 4h-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 5.5 10.5 4v7H3zM12 3.7 21 2v9h-9zM3 13h7.5v7L3 18.5zM12 13h9v9l-9-1.7z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.9a3.4 3.4 0 0 0-.9-2.7c3-.3 6.2-1.5 6.2-6.7a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.1-.4-3.7 1.4a12.8 12.8 0 0 0-6.7 0C5.8 1.1 4.7 1.5 4.7 1.5a4.8 4.8 0 0 0-.1 3.6 5.2 5.2 0 0 0-1.4 3.6c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.7V22"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.7-6L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.7 6L3 16"/><path d="M3 21v-5h5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main" data-he="דלג לתוכן" data-en="Skip to content">דלג לתוכן</a>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="MINI ADAM home">
+        <span class="brand-mark"><span>M</span><i></i></span>
+        <span class="brand-copy"><b>MINI ADAM</b><small>LOCAL AI WORKSPACE</small></span>
+      </a>
+      <nav class="main-nav" id="siteNav" aria-label="Main navigation">
+        <a href="#features" data-he="יכולות" data-en="Features">יכולות</a>
+        <a href="#how-it-works" data-he="איך זה עובד" data-en="How it works">איך זה עובד</a>
+        <a href="#requirements" data-he="דרישות מערכת" data-en="Requirements">דרישות מערכת</a>
+        <a href="#faq" data-he="שאלות נפוצות" data-en="FAQ">שאלות נפוצות</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="language-button" id="lang" type="button" aria-label="Switch to English">EN</button>
+        <a class="nav-download" href="#download"><span data-he="הורדה" data-en="Download">הורדה</span><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+        <button class="menu-button" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="siteNav"><svg class="icon"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero-section" id="top">
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <div class="hero-kicker"><span class="live-dot"></span><span data-he="סביבת AI אישית. מקומית. שלך." data-en="A personal AI workspace. Local. Yours.">סביבת AI אישית. מקומית. שלך.</span><span class="kicker-divider"></span><b>WINDOWS / X64</b></div>
+          <h1 data-he="תכיר את ה־AI<br><span>שגר אצלך.</span>" data-en="Meet the AI<br><span>that lives with you.</span>">תכיר את ה־AI<br><span>שגר אצלך.</span></h1>
+          <p class="hero-lead" data-he="MINI ADAM הופך מודלים מקומיים לחוויית Desktop שלמה: שיחות, זיכרון, קבצים וכלים — בלי לוותר על שליטה במחשב ובנתונים שלך." data-en="MINI ADAM turns local models into a complete desktop experience: conversations, memory, files, and tools — while keeping control on your machine.">MINI ADAM הופך מודלים מקומיים לחוויית Desktop שלמה: שיחות, זיכרון, קבצים וכלים — בלי לוותר על שליטה במחשב ובנתונים שלך.</p>
+          <div class="hero-actions" id="download">
+            <a class="button button-primary" id="downloadButton" href="https://github.com/pref1x-1/MiniAdam-AI/releases" target="_blank" rel="noreferrer">
+              <svg class="icon"><use href="#i-download"/></svg>
+              <span data-he="הורדת MINI ADAM" data-en="Download MINI ADAM">הורדת MINI ADAM</span>
+              <span class="button-version" id="versionBadge">SETUP</span>
+            </a>
+            <a class="button button-quiet" href="#how-it-works"><span data-he="איך מתחילים?" data-en="How to get started">איך מתחילים?</span><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="download-meta" id="downloadStatus" role="status" aria-live="polite">
+            <span class="status-indicator"></span>
+            <span data-he="בודק זמינות של המתקין הרשמי…" data-en="Checking the official installer…">בודק זמינות של המתקין הרשמי…</span>
+          </div>
+          <div class="hero-assurances">
+            <span><svg class="icon"><use href="#i-lock"/></svg><span data-he="מקומי כברירת מחדל" data-en="Local by default">מקומי כברירת מחדל</span></span>
+            <span><svg class="icon"><use href="#i-windows"/></svg><span>Windows 10 / 11</span></span>
+            <span><svg class="icon"><use href="#i-activity"/></svg><span data-he="מופעל באמצעות Ollama" data-en="Powered by Ollama">מופעל באמצעות Ollama</span></span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Illustrative MINI ADAM desktop interface preview">
+          <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+          <div class="preview-label"><span class="preview-label-dot"></span><span data-he="תצוגה מקדימה של סביבת העבודה" data-en="WORKSPACE PREVIEW">תצוגה מקדימה של סביבת העבודה</span></div>
+          <div class="desktop-window">
+            <div class="window-titlebar">
+              <div class="window-brand">
+                <span class="window-mark">M</span>
+                <span><b>MINI ADAM</b><small>LOCAL WORKSPACE</small></span>
+              </div>
+              <div class="window-controls"><i></i><i></i><i></i></div>
+            </div>
+            <div class="mock-app">
+              <aside class="mock-sidebar">
+                <div class="mock-side-heading"><span data-he="סביבת עבודה" data-en="WORKSPACE">סביבת עבודה</span><svg class="icon"><use href="#i-menu"/></svg></div>
+                <div class="mock-new-chat"><svg class="icon"><use href="#i-plus"/></svg><span data-he="שיחה חדשה" data-en="New chat">שיחה חדשה</span></div>
+                <div class="mock-nav-item active"><svg class="icon"><use href="#i-message"/></svg><span data-he="שיחות" data-en="Chats">שיחות</span></div>
+                <div class="mock-nav-item"><svg class="icon"><use href="#i-brain"/></svg><span data-he="זיכרון" data-en="Memory">זיכרון</span></div>
+                <div class="mock-nav-item"><svg class="icon"><use href="#i-cpu"/></svg><span data-he="מודלים" data-en="Models">מודלים</span></div>
+                <div class="mock-nav-item"><svg class="icon"><use href="#i-folder"/></svg><span data-he="קבצים" data-en="Files">קבצים</span></div>
+                <div class="mock-recent-title" data-he="אחרונים" data-en="RECENT">אחרונים</div>
+                <div class="mock-chat-row selected"><span></span><b data-he="היכרות עם מודלים מקומיים" data-en="Getting started with local models">היכרות עם מודלים מקומיים</b></div>
+                <div class="mock-chat-row"><span></span><b data-he="תכנון פרויקט חדש" data-en="Planning a new project">תכנון פרויקט חדש</b></div>
+                <div class="mock-chat-row"><span></span><b data-he="עזרה ב־Java" data-en="Java help">עזרה ב־Java</b></div>
+                <div class="mock-sidebar-bottom"><span class="avatar">A</span><span><b>Local profile</b><small data-he="הנתונים נשמרים במחשב" data-en="Stored on this device">הנתונים נשמרים במחשב</small></span><svg class="icon"><use href="#i-menu"/></svg></div>
+              </aside>
+              <div class="mock-conversation">
+                <div class="mock-chat-top">
+                  <div><b data-he="היכרות עם מודלים מקומיים" data-en="Getting started with local models">היכרות עם מודלים מקומיים</b><small>QWEN3 · LOCAL MODEL</small></div>
+                  <span class="mock-status"><i></i>LOCAL</span>
+                </div>
+                <div class="mock-messages">
+                  <div class="mock-date" data-he="שיחה לדוגמה" data-en="SAMPLE CONVERSATION">שיחה לדוגמה</div>
+                  <div class="mock-user-message"><span class="mock-user-avatar">A</span><p data-he="איך אני מתחיל להריץ מודל AI אצלי במחשב?" data-en="How do I start running an AI model on my PC?">איך אני מתחיל להריץ מודל AI אצלי במחשב?</p></div>
+                  <div class="mock-assistant">
+                    <div class="assistant-heading"><span class="assistant-symbol"><svg class="icon"><use href="#i-sparkles"/></svg></span><b>MINI ADAM</b><span>·</span><small data-he="תשובה מקומית" data-en="LOCAL RESPONSE">תשובה מקומית</small></div>
+                    <p data-he="מתחילים עם Ollama, בוחרים מודל שמתאים לחומרה שלך — ומשם אפשר פשוט להתחיל לדבר." data-en="Start with Ollama, choose a model that fits your hardware, and then just start talking.">מתחילים עם Ollama, בוחרים מודל שמתאים לחומרה שלך — ומשם אפשר פשוט להתחיל לדבר.</p>
+                    <div class="mock-code"><span>ollama</span> pull qwen3:4b <svg class="icon"><use href="#i-copy"/></svg></div>
+                  </div>
+                </div>
+                <div class="mock-composer">
+                  <span data-he="כתוב הודעה ל־MINI ADAM…" data-en="Message MINI ADAM…">כתוב הודעה ל־MINI ADAM…</span>
+                  <div><svg class="icon"><use href="#i-paperclip"/></svg><span class="mock-send"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="window-bottom"><span><i></i><span data-he="תצוגה להמחשה בלבד" data-en="ILLUSTRATIVE PREVIEW">תצוגה להמחשה בלבד</span></span><span>BUILD 3.5</span></div>
+          </div>
+          <div class="floating-chip chip-runtime"><span class="chip-icon"><svg class="icon"><use href="#i-cpu"/></svg></span><span><b>OLLAMA</b><small data-he="מנוע מודלים מקומי" data-en="Local model runtime">מנוע מודלים מקומי</small></span><i class="chip-check"><svg class="icon"><use href="#i-check"/></svg></i></div>
+          <div class="floating-chip chip-memory"><span class="chip-icon"><svg class="icon"><use href="#i-database"/></svg></span><span><b data-he="הזיכרון שלך" data-en="YOUR MEMORY">הזיכרון שלך</b><small data-he="נשמר מקומית" data-en="Stored locally">נשמר מקומית</small></span></div>
+        </div>
+      </div>
+      <div class="hero-bottom container">
+        <span data-he="נבנה סביב שליטה מקומית" data-en="BUILT AROUND LOCAL CONTROL">נבנה סביב שליטה מקומית</span>
+        <div class="hero-bottom-rule"></div>
+        <span>OLLAMA</span><span>WINDOWS DESKTOP</span><span>LOCAL MEMORY</span>
+      </div>
+    </section>
+
+    <section class="principles-section">
+      <div class="container principles">
+        <article><span class="principle-icon"><svg class="icon"><use href="#i-cpu"/></svg></span><div><b data-he="המודלים נשארים אצלך" data-en="Your models stay yours">המודלים נשארים אצלך</b><p data-he="ההרצה נעשית דרך Ollama במחשב המקומי." data-en="Inference runs through Ollama on your own machine.">ההרצה נעשית דרך Ollama במחשב המקומי.</p></div></article>
+        <article><span class="principle-icon"><svg class="icon"><use href="#i-database"/></svg></span><div><b data-he="היסטוריה וזיכרון מקומיים" data-en="Local history and memory">היסטוריה וזיכרון מקומיים</b><p data-he="השיחות והזיכרונות נשמרים בפרופיל Windows שלך." data-en="Chats and memories are saved in your Windows profile.">השיחות והזיכרונות נשמרים בפרופיל Windows שלך.</p></div></article>
+        <article><span class="principle-icon"><svg class="icon"><use href="#i-sliders"/></svg></span><div><b data-he="אתה בוחר את המודל" data-en="You choose the model">אתה בוחר את המודל</b><p data-he="בחר מודל לפי השימוש והחומרה שלך." data-en="Choose a model for your needs and hardware.">בחר מודל לפי השימוש והחומרה שלך.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section features-section container" id="features">
+      <div class="section-heading">
+        <div><span class="section-overline" data-he="סביבת עבודה, לא עוד חלון צ׳אט" data-en="MORE THAN ANOTHER CHAT WINDOW">סביבת עבודה, לא עוד חלון צ׳אט</span><h2 data-he="כל החלקים של ה־AI שלך.<br><span>במקום אחד.</span>" data-en="Every part of your AI workflow.<br><span>One place.</span>">כל החלקים של ה־AI שלך.<br><span>במקום אחד.</span></h2></div>
+        <p data-he="MINI ADAM נבנה כדי להפוך שימוש במודלים מקומיים לנוח, מסודר ואישי יותר — מהשיחה הראשונה ועד לכלים המתקדמים." data-en="MINI ADAM makes working with local models more comfortable, organized, and personal — from your first chat to advanced tools.">MINI ADAM נבנה כדי להפוך שימוש במודלים מקומיים לנוח, מסודר ואישי יותר — מהשיחה הראשונה ועד לכלים המתקדמים.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card feature-large">
+          <div class="feature-top"><span class="feature-icon"><svg class="icon"><use href="#i-message"/></svg></span><span class="feature-index">01 / CONVERSATION</span></div>
+          <h3 data-he="שיחות שמרגישות מסודרות" data-en="Conversations that stay organized">שיחות שמרגישות מסודרות</h3>
+          <p data-he="נהל היסטוריה, חפש שיחות, ערוך הודעות, שכפל ענפים, הוסף סימניות וייצא תוכן — בלי להפוך את המסך לעמוס." data-en="Search chat history, edit messages, branch conversations, bookmark replies, and export content without cluttering the workspace.">נהל היסטוריה, חפש שיחות, ערוך הודעות, שכפל ענפים, הוסף סימניות וייצא תוכן — בלי להפוך את המסך לעמוס.</p>
+          <div class="feature-visual chat-lines" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-top"><span class="feature-icon"><svg class="icon"><use href="#i-brain"/></svg></span><span class="feature-index">02 / PERSONAL</span></div>
+          <h3 data-he="אישיות וזיכרון" data-en="Personality and memory">אישיות וזיכרון</h3>
+          <p data-he="הפעל Adam Mode כשמתאים לך ושמור זיכרונות מקומיים שאפשר לנהל ולערוך." data-en="Enable Adam Mode when you want it and manage persistent local memories.">הפעל Adam Mode כשמתאים לך ושמור זיכרונות מקומיים שאפשר לנהל ולערוך.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-top"><span class="feature-icon"><svg class="icon"><use href="#i-cpu"/></svg></span><span class="feature-index">03 / MODELS</span></div>
+          <h3 data-he="שליטה במודלים" data-en="Model control">שליטה במודלים</h3>
+          <p data-he="גלה מודלים, הורד, בחר, רענן, פרוק או מחק אותם מתוך הממשק." data-en="Discover, download, select, refresh, unload, and remove models from the app.">גלה מודלים, הורד, בחר, רענן, פרוק או מחק אותם מתוך הממשק.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-top"><span class="feature-icon"><svg class="icon"><use href="#i-paperclip"/></svg></span><span class="feature-index">04 / CONTEXT</span></div>
+          <h3 data-he="קבצים ותמונות" data-en="Files and images">קבצים ותמונות</h3>
+          <p data-he="צרף קבצים ותמונות לשיחה. הבנת תמונות דורשת מודל Vision תואם." data-en="Attach files and images to a conversation. Image understanding requires a compatible vision model.">צרף קבצים ותמונות לשיחה. הבנת תמונות דורשת מודל Vision תואם.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-top"><span class="feature-icon"><svg class="icon"><use href="#i-shield-check"/></svg></span><span class="feature-index">05 / AGENT</span></div>
+          <h3 data-he="כלים עם אישור שלך" data-en="Tools with your approval">כלים עם אישור שלך</h3>
+          <p data-he="פעולות קבצים ב־workspace מורשה, עם אישור לפני ביצוע ושמירה על גבולות הגישה." data-en="File actions inside an approved workspace, with confirmation before execution and clear access boundaries.">פעולות קבצים ב־workspace מורשה, עם אישור לפני ביצוע ושמירה על גבולות הגישה.</p>
+        </article>
+        <article class="feature-card feature-wide">
+          <div class="feature-top"><span class="feature-icon"><svg class="icon"><use href="#i-monitor"/></svg></span><span class="feature-index">06 / DESKTOP</span></div>
+          <h3 data-he="נבנה ל־Windows" data-en="Made for Windows">נבנה ל־Windows</h3>
+          <p data-he="חלון Desktop, System Tray, קיצורי מקלדת, מצב ריכוז והגדרות תצוגה — חלק מחוויית שימוש אחת." data-en="A desktop window, system tray, keyboard shortcuts, focus mode, and display settings in one coherent experience.">חלון Desktop, System Tray, קיצורי מקלדת, מצב ריכוז והגדרות תצוגה — חלק מחוויית שימוש אחת.</p>
+          <div class="desktop-badges"><span><svg class="icon"><use href="#i-windows"/></svg>Windows 10/11</span><span><svg class="icon"><use href="#i-terminal"/></svg>Ollama runtime</span><span><svg class="icon"><use href="#i-lock"/></svg>Local-first</span></div>
+        </article>
+      </div>
+      <p class="feature-footnote" data-he="יכולות כמו הצגת חשיבה, ניתוח תמונות ואיכות התשובות תלויות במודל שנבחר ובחומרה שלך." data-en="Thinking output, image analysis, and response quality depend on the selected model and your hardware.">יכולות כמו הצגת חשיבה, ניתוח תמונות ואיכות התשובות תלויות במודל שנבחר ובחומרה שלך.</p>
+    </section>
+
+    <section class="workflow-section" id="how-it-works">
+      <div class="container workflow-layout">
+        <div class="workflow-intro">
+          <span class="section-overline" data-he="מתחילים בכמה צעדים" data-en="UP AND RUNNING">מתחילים בכמה צעדים</span>
+          <h2 data-he="מההורדה הראשונה<br><span>לשיחה הראשונה.</span>" data-en="From first download<br><span>to first conversation.</span>">מההורדה הראשונה<br><span>לשיחה הראשונה.</span></h2>
+          <p data-he="המתקין מוסיף את MINI ADAM. מנוע המודלים והמודל עצמו מותקנים בנפרד, כדי שתוכל לבחור את מה שמתאים למחשב שלך." data-en="The installer adds MINI ADAM. The model runtime and the model itself are installed separately, so you can choose what fits your PC.">המתקין מוסיף את MINI ADAM. מנוע המודלים והמודל עצמו מותקנים בנפרד, כדי שתוכל לבחור את מה שמתאים למחשב שלך.</p>
+          <a class="text-link" href="https://ollama.com/download" target="_blank" rel="noreferrer"><span data-he="מעבר לאתר Ollama" data-en="Visit Ollama">מעבר לאתר Ollama</span><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+        <div class="steps-list">
+          <article class="step-item">
+            <span class="step-icon"><svg class="icon"><use href="#i-download"/></svg></span>
+            <div><small>STEP 01</small><h3 data-he="מורידים את המתקין" data-en="Download the installer">מורידים את המתקין</h3><p data-he="הורד את MINI ADAM Setup מה־Release הרשמי של GitHub." data-en="Get MINI ADAM Setup from the official GitHub Release.">הורד את MINI ADAM Setup מה־Release הרשמי של GitHub.</p></div>
+          </article>
+          <article class="step-item">
+            <span class="step-icon"><svg class="icon"><use href="#i-monitor"/></svg></span>
+            <div><small>STEP 02</small><h3 data-he="מתקינים ומגדירים" data-en="Install and configure">מתקינים ומגדירים</h3><p data-he="מאשרים את התקנון, בוחרים תיקייה, ומחליטים אם ליצור קיצורי דרך." data-en="Accept the terms, choose an install folder, and decide which shortcuts to create.">מאשרים את התקנון, בוחרים תיקייה, ומחליטים אם ליצור קיצורי דרך.</p></div>
+          </article>
+          <article class="step-item">
+            <span class="step-icon"><svg class="icon"><use href="#i-cpu"/></svg></span>
+            <div><small>STEP 03</small><h3 data-he="מתקינים את Ollama" data-en="Install Ollama">מתקינים את Ollama</h3><p data-he="התקן את Ollama והפעל אותו. הוא לא כלול בתוך מתקין MINI ADAM." data-en="Install and start Ollama. It is not bundled with the MINI ADAM installer.">התקן את Ollama והפעל אותו. הוא לא כלול בתוך מתקין MINI ADAM.</p></div>
+          </article>
+          <article class="step-item">
+            <span class="step-icon"><svg class="icon"><use href="#i-sparkles"/></svg></span>
+            <div><small>STEP 04</small><h3 data-he="בוחרים מודל ומתחילים" data-en="Choose a model and begin">בוחרים מודל ומתחילים</h3><p data-he="השלם את שאלות ההיכרות, בדוק את החומרה ובחר מודל שמתאים לך." data-en="Complete onboarding, check your hardware, and select a model that suits your needs.">השלם את שאלות ההיכרות, בדוק את החומרה ובחר מודל שמתאים לך.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="requirements-section container" id="requirements">
+      <div class="requirements-card">
+        <div class="requirements-copy">
+          <span class="section-overline" data-he="לפני שמתקינים" data-en="BEFORE YOU INSTALL">לפני שמתקינים</span>
+          <h2 data-he="מכינים את המחשב.<br><span>לא צריך ענן.</span>" data-en="Prepare your PC.<br><span>No cloud required.</span>">מכינים את המחשב.<br><span>לא צריך ענן.</span></h2>
+          <p data-he="MINI ADAM הוא הממשק. Ollama מפעיל את המודל, והחומרה שלך קובעת איזה מודל יהיה נוח להריץ." data-en="MINI ADAM is the interface. Ollama runs the model, and your hardware determines which model feels comfortable to use.">MINI ADAM הוא הממשק. Ollama מפעיל את המודל, והחומרה שלך קובעת איזה מודל יהיה נוח להריץ.</p>
+        </div>
+        <div class="requirement-list">
+          <div><span class="requirement-icon"><svg class="icon"><use href="#i-windows"/></svg></span><span><b data-he="Windows 10 או 11" data-en="Windows 10 or 11">Windows 10 או 11</b><small data-he="מערכת 64-bit" data-en="64-bit operating system">מערכת 64-bit</small></span><svg class="icon requirement-check"><use href="#i-check"/></svg></div>
+          <div><span class="requirement-icon"><svg class="icon"><use href="#i-cpu"/></svg></span><span><b>Ollama</b><small data-he="מותקן ופועל" data-en="Installed and running">מותקן ופועל</small></span><svg class="icon requirement-check"><use href="#i-check"/></svg></div>
+          <div><span class="requirement-icon"><svg class="icon"><use href="#i-monitor"/></svg></span><span><b>Microsoft WebView2</b><small data-he="Runtime נדרש לממשק Desktop" data-en="Runtime required for the desktop UI">Runtime נדרש לממשק Desktop</small></span><svg class="icon requirement-check"><use href="#i-check"/></svg></div>
+          <div><span class="requirement-icon"><svg class="icon"><use href="#i-database"/></svg></span><span><b data-he="מקום פנוי" data-en="Free disk space">מקום פנוי</b><small data-he="למודלים שתבחר להוריד" data-en="For the models you choose to download">למודלים שתבחר להוריד</small></span><svg class="icon requirement-check"><use href="#i-check"/></svg></div>
+        </div>
+        <div class="requirements-bottom"><svg class="icon"><use href="#i-info"/></svg><span data-he="המתקין אינו כולל את Ollama או מודלים. הורדת מודלים דורשת אינטרנט ונפח אחסון נוסף." data-en="The installer does not include Ollama or AI models. Model downloads require internet access and additional disk space.">המתקין אינו כולל את Ollama או מודלים. הורדת מודלים דורשת אינטרנט ונפח אחסון נוסף.</span></div>
+      </div>
+    </section>
+
+    <section class="privacy-section">
+      <div class="container privacy-layout">
+        <div class="privacy-emblem"><svg class="icon"><use href="#i-shield-check"/></svg><span>LOCAL<br>BY DESIGN</span></div>
+        <div class="privacy-copy">
+          <span class="section-overline" data-he="שליטה מקומית" data-en="LOCAL CONTROL">שליטה מקומית</span>
+          <h2 data-he="הנתונים שלך נשארים<br><span>בשליטה שלך.</span>" data-en="Your data stays<br><span>under your control.</span>">הנתונים שלך נשארים<br><span>בשליטה שלך.</span></h2>
+          <p data-he="כשאתה משתמש במודל Ollama מקומי, ההסקה מתבצעת במחשב שלך. היסטוריית הצ׳אט והזיכרון נשמרים בפרופיל Windows המקומי. הורדת מודלים ועדכונים עדיין דורשת חיבור לאינטרנט." data-en="When you use a local Ollama model, inference runs on your PC. Chat history and memory are stored in your local Windows profile. Downloading models and updates still requires an internet connection.">כשאתה משתמש במודל Ollama מקומי, ההסקה מתבצעת במחשב שלך. היסטוריית הצ׳אט והזיכרון נשמרים בפרופיל Windows המקומי. הורדת מודלים ועדכונים עדיין דורשת חיבור לאינטרנט.</p>
+          <div class="privacy-points"><span><svg class="icon"><use href="#i-check"/></svg><span data-he="עיבוד מקומי עם Ollama" data-en="Local inference with Ollama">עיבוד מקומי עם Ollama</span></span><span><svg class="icon"><use href="#i-check"/></svg><span data-he="זיכרון והיסטוריה במחשב" data-en="Memory and history on-device">זיכרון והיסטוריה במחשב</span></span><span><svg class="icon"><use href="#i-check"/></svg><span data-he="אישור לפני פעולות Agent" data-en="Approval before Agent actions">אישור לפני פעולות Agent</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section container" id="faq">
+      <div class="section-heading faq-heading">
+        <div><span class="section-overline" data-he="כמה דברים שכדאי לדעת" data-en="GOOD TO KNOW">כמה דברים שכדאי לדעת</span><h2 data-he="שאלות לפני שמתחילים." data-en="A few things to know.">שאלות לפני שמתחילים.</h2></div>
+        <p data-he="לא מצאת תשובה? אפשר לפתוח Issue במאגר GitHub." data-en="Still have a question? Open an issue on GitHub.">לא מצאת תשובה? אפשר לפתוח Issue במאגר GitHub.</p>
+      </div>
+      <div class="faq-list">
+        <details><summary><span data-he="האם MINI ADAM מתקין את Ollama?" data-en="Does MINI ADAM install Ollama?">האם MINI ADAM מתקין את Ollama?</span><svg class="icon"><use href="#i-chevron"/></svg></summary><p data-he="לא. Ollama מותקן בנפרד מהאתר הרשמי. לאחר מכן MINI ADAM יכול לזהות את השירות המקומי ולהתחבר אליו." data-en="No. Install Ollama separately from its official website. MINI ADAM can then detect and connect to the local service.">לא. Ollama מותקן בנפרד מהאתר הרשמי. לאחר מכן MINI ADAM יכול לזהות את השירות המקומי ולהתחבר אליו.</p></details>
+        <details><summary><span data-he="האם השיחות נשלחות לענן?" data-en="Are my chats sent to the cloud?">האם השיחות נשלחות לענן?</span><svg class="icon"><use href="#i-chevron"/></svg></summary><p data-he="בשימוש במודל Ollama מקומי, ההסקה מתבצעת במחשב והנתונים נשמרים מקומית. שימוש בספק ענן או בשירות חיצוני, אם תבחר בו, עשוי להעביר אליו מידע." data-en="With a local Ollama model, inference runs on your PC and data is stored locally. Choosing a cloud provider or external service may send data to that provider.">בשימוש במודל Ollama מקומי, ההסקה מתבצעת במחשב והנתונים נשמרים מקומית. שימוש בספק ענן או בשירות חיצוני, אם תבחר בו, עשוי להעביר אליו מידע.</p></details>
+        <details><summary><span data-he="האם Adam Mode חייב להיות פעיל?" data-en="Do I have to enable Adam Mode?">האם Adam Mode חייב להיות פעיל?</span><svg class="icon"><use href="#i-chevron"/></svg></summary><p data-he="לא. Adam Mode הוא אפשרות. אפשר להפעיל או לכבות אותו לכל שיחה בנפרד ולבחור ברירת מחדל בהגדרות." data-en="No. Adam Mode is optional. Toggle it per conversation and choose a default in Settings.">לא. Adam Mode הוא אפשרות. אפשר להפעיל או לכבות אותו לכל שיחה בנפרד ולבחור ברירת מחדל בהגדרות.</p></details>
+        <details><summary><span data-he="האם מודלים כלולים במתקין?" data-en="Are AI models included in the installer?">האם מודלים כלולים במתקין?</span><svg class="icon"><use href="#i-chevron"/></svg></summary><p data-he="לא. המתקין כולל את MINI ADAM. את Ollama ואת המודלים מורידים בנפרד. גודל המודל משפיע על נפח האחסון, הזיכרון והמהירות." data-en="No. The installer contains MINI ADAM only. Ollama and models are downloaded separately. Model size affects storage, memory, and speed.">לא. המתקין כולל את MINI ADAM. את Ollama ואת המודלים מורידים בנפרד. גודל המודל משפיע על נפח האחסון, הזיכרון והמהירות.</p></details>
+        <details><summary><span data-he="למה Windows עשוי להציג אזהרת אבטחה?" data-en="Why might Windows show a security warning?">למה Windows עשוי להציג אזהרת אבטחה?</span><svg class="icon"><use href="#i-chevron"/></svg></summary><p data-he="המתקין אינו חתום דיגיטלית. אין לעקוף זיהוי של Defender או SmartScreen ואין להוסיף חריגות. הורד רק מהמקור הרשמי ואמת את SHA-256." data-en="The installer is not digitally signed. Do not bypass Defender or SmartScreen detections or add exclusions. Download only from the official source and verify the SHA-256.">המתקין אינו חתום דיגיטלית. אין לעקוף זיהוי של Defender או SmartScreen ואין להוסיף חריגות. הורד רק מהמקור הרשמי ואמת את SHA-256.</p></details>
+      </div>
+    </section>
+
+    <section class="closing-section container">
+      <div class="closing-card">
+        <div class="closing-mark"><span>M</span><i></i></div>
+        <div class="closing-copy"><span class="section-overline" data-he="MINI ADAM · WINDOWS DESKTOP" data-en="MINI ADAM · WINDOWS DESKTOP">MINI ADAM · WINDOWS DESKTOP</span><h2 data-he="המודל שלך.<br><span>הדרך שלך.</span>" data-en="Your model.<br><span>Your way.</span>">המודל שלך.<br><span>הדרך שלך.</span></h2><p data-he="התחל מהמתקין הרשמי, חבר את Ollama ובחר מודל שמתאים למחשב שלך." data-en="Start with the official installer, connect Ollama, and choose a model that fits your PC.">התחל מהמתקין הרשמי, חבר את Ollama ובחר מודל שמתאים למחשב שלך.</p></div>
+        <a class="button button-primary closing-button" id="finalDownload" href="https://github.com/pref1x-1/MiniAdam-AI/releases" target="_blank" rel="noreferrer"><svg class="icon"><use href="#i-download"/></svg><span data-he="הורדת MINI ADAM" data-en="Download MINI ADAM">הורדת MINI ADAM</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <a class="brand" href="#top"><span class="brand-mark"><span>M</span><i></i></span><span class="brand-copy"><b>MINI ADAM</b><small>LOCAL AI WORKSPACE</small></span></a>
+      <div class="footer-links">
+        <a href="https://github.com/pref1x-1/MiniAdam-AI" target="_blank" rel="noreferrer"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
+        <a href="https://ollama.com/download" target="_blank" rel="noreferrer"><svg class="icon"><use href="#i-arrow-up-right"/></svg>Ollama</a>
+        <a href="https://github.com/pref1x-1/MiniAdam-AI/releases" target="_blank" rel="noreferrer"><svg class="icon"><use href="#i-download"/></svg><span data-he="גרסאות" data-en="Releases">גרסאות</span></a>
+      </div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year">2026</span> ADAM / PREF1X</span><span data-he="נבנה מתוך סקרנות. מופעל מקומית." data-en="Built with curiosity. Runs locally.">נבנה מתוך סקרנות. מופעל מקומית.</span><a href="#top" class="back-top"><span data-he="חזרה למעלה" data-en="Back to top">חזרה למעלה</span><svg class="icon"><use href="#i-arrow-up-right"/></svg></a></div>
+  </footer>
+</body>
+</html>
