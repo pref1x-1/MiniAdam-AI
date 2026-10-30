@@ -321,6 +321,7 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
 .a11y-options button[aria-pressed="true"]>.icon{color:var(--green)}
 .a11y-options button[aria-pressed="true"]>i{background:var(--green);box-shadow:0 0 0 3px rgba(0,200,150,.12)}
 .a11y-options button[data-a11y-action="reset"]{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.065)}
+html[dir="ltr"] .a11y-root{direction:ltr}
 .a11y-feedback{margin:12px 0 0;color:#82919b;font-size:8px;line-height:1.7}
 .a11y-live{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
@@ -342,7 +343,7 @@ html.a11y-contrast a,html.a11y-contrast button{outline-color:#ff0!important}
 html.a11y-contrast .button-primary,html.a11y-contrast .nav-download{background:#ff0!important;color:#000!important}
 html.a11y-links a{text-decoration:underline!important;text-decoration-thickness:2px!important;text-underline-offset:3px!important}
 html.a11y-readable-font,html.a11y-readable-font body,html.a11y-readable-font body *{font-family:Arial,"Arial Hebrew",sans-serif!important;letter-spacing:normal!important}
-html.a11y-grayscale body{filter:grayscale(1)!important}
+html.a11y-grayscale body>*:not(.a11y-root){filter:grayscale(1)!important}
 html.a11y-spacing body{line-height:2!important;letter-spacing:.02em!important}
 html.a11y-reduced-motion *,html.a11y-reduced-motion *:before,html.a11y-reduced-motion *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 html.a11y-reduced-motion .js-ready [data-reveal]{opacity:1!important;transform:none!important}
