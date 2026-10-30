@@ -3,7 +3,8 @@
 
   const releaseApi='https://api.github.com/repos/pref1x-1/MiniAdam-AI/releases/latest';
   const releasesPage='https://github.com/pref1x-1/MiniAdam-AI/releases';
-  const installerPattern=/^miniadam[-_ ]setup.*\.exe$/i;
+  const repoApi='https://api.github.com/repos/pref1x-1/MiniAdam-AI';
+  const installerPattern=/^miniadam.*setup.*\.exe$/i;
   const root=document.documentElement;
   const langButton=document.getElementById('lang');
   const downloadButton=document.getElementById('downloadButton');
@@ -19,7 +20,7 @@
   const a11yScale=document.getElementById('a11yScale');
   const a11yFeedback=document.getElementById('a11yFeedback');
 
-  let language='he';
+  let language='en';
   let releaseAsset=null;
   let releaseInfo=null;
   let downloadState='checking';
@@ -40,14 +41,15 @@
       if(value!==undefined)node.innerHTML=value;
     });
     if(langButton){
-      langButton.textContent=language==='he'?'EN':'עב';
-      langButton.setAttribute('aria-label',language==='he'?'Switch to English':'החלף לעברית');
+      const code=langButton.querySelector('.language-code');
+      if(code)code.textContent=language==='en'?'HE':'EN';
+      langButton.setAttribute('aria-label',language==='en'?'Switch to Hebrew':'Switch to English');
     }
     renderDownload();
     a11yTrigger?.setAttribute('aria-label',language==='he'?'פתח תפריט נגישות':'Open accessibility menu');
     a11yClose?.setAttribute('aria-label',language==='he'?'סגירת תפריט נגישות':'Close accessibility menu');
     menuToggle?.setAttribute('aria-label',language==='he'?'פתח תפריט ניווט':'Open navigation');
-    writeStorage('miniadam-site-language',language);
+    writeStorage('miniadam-site-language-v2',language);
   }
 
   function normalizeAccessibility(value){
@@ -124,7 +126,10 @@
     const url=available?releaseAsset.browser_download_url:releasesPage;
     downloadButton.href=url;
     finalDownload.href=url;
-    if(versionBadge)versionBadge.textContent=available?(releaseInfo?.tag_name||'SETUP'):'SETUP';
+    const version=available?((releaseAsset.name.match(/(\\d+\\.\\d+(?:\\.\\d+){1,2})/)||[])[1]||'SETUP'):'SETUP';
+    if(versionBadge)versionBadge.textContent='v'+version;
+    const productVersion=document.getElementById('productVersionBadge');
+    if(productVersion)productVersion.textContent='MINI ADAM '+version;
     downloadButton.title=available?releaseAsset.name:(language==='he'?'פתיחת עמוד הגרסאות':'Open releases page');
     finalDownload.title=downloadButton.title;
     updateStatus();
@@ -149,7 +154,86 @@
     }finally{
       window.clearTimeout(timeout);
       renderDownload();
+      renderIntegrity();
     }
+  }
+
+
+  function renderIntegrity(){
+    const hashNode=document.getElementById('integrityHash');
+    const nameNode=document.getElementById('integrityAssetName');
+    const commandNode=document.getElementById('integrityCommand');
+    const copyButton=document.getElementById('copyIntegrityHash');
+    const feedback=document.getElementById('integrityFeedback');
+    if(!hashNode||!nameNode||!commandNode)return;
+    const digest=String(releaseAsset?.digest||'').replace(/^sha256:/i,'').toLowerCase();
+    const valid=/^[a-f0-9]{64}$/.test(digest);
+    if(releaseAsset?.name)nameNode.textContent=releaseAsset.name;
+    if(valid){
+      hashNode.textContent=digest;
+      commandNode.textContent='Get-FileHash ".\\'+releaseAsset.name+'" -Algorithm SHA256';
+      if(copyButton)copyButton.disabled=false;
+      if(feedback)feedback.textContent=language==='he'?'הגיבוב נטען מה־Release האחרון ב־GitHub.':'Digest loaded from the latest GitHub Release.';
+    }else{
+      hashNode.textContent=language==='he'?'לא פורסם גיבוב SHA-256 עבור הקובץ הזה.':'No SHA-256 digest is published for this asset.';
+      commandNode.textContent=language==='he'?'לא זמין כרגע':'Not available';
+      if(copyButton)copyButton.disabled=true;
+      if(feedback)feedback.textContent=language==='he'?'אפשר לפתוח את עמוד ה־Release ולבדוק אם פורסם SHA-256.':'Open the release page to check whether a SHA-256 digest is available.';
+    }
+  }
+  async function checkRepositoryStars(){
+    const nodes=[...document.querySelectorAll('[data-github-stars]')];
+    if(!nodes.length)return;
+    const controller=new AbortController();
+    const timeout=window.setTimeout(()=>controller.abort(),6500);
+    try{
+      const response=await fetch(repoApi,{headers:{Accept:'application/vnd.github+json'},signal:controller.signal});
+      if(!response.ok)throw new Error('GitHub API returned '+response.status);
+      const data=await response.json();
+      const count=Number(data.stargazers_count);
+      if(!Number.isFinite(count)||count<0)throw new Error('Invalid star count');
+      nodes.forEach(node=>node.textContent=count.toLocaleString(language==='he'?'he-IL':'en-US'));
+      const link=document.getElementById('githubStarLink');
+      link?.setAttribute('aria-label',language==='he'?('MINI ADAM ב־GitHub · '+count+' כוכבים'):('MINI ADAM on GitHub · '+count+' stars'));
+    }catch(error){
+      console.warn('[MINI ADAM] GitHub star lookup failed:',error);
+    }finally{window.clearTimeout(timeout)}
+  }
+  function initIntegrityCopy(){
+    const button=document.getElementById('copyIntegrityHash');
+    const target=document.getElementById('integrityHash');
+    const feedback=document.getElementById('integrityFeedback');
+    button?.addEventListener('click',async()=>{
+      const value=target?.textContent?.trim()||'';
+      if(!/^[a-f0-9]{64}$/i.test(value))return;
+      try{
+        await navigator.clipboard.writeText(value);
+        if(feedback)feedback.textContent=language==='he'?'הגיבוב הועתק ללוח.':'SHA-256 copied to clipboard.';
+      }catch{
+        if(feedback)feedback.textContent=language==='he'?'ההעתקה לא נתמכה. אפשר לסמן ולהעתיק את הטקסט ידנית.':'Clipboard access is unavailable. Select and copy the hash manually.';
+      }
+    });
+  }
+  function initContact(){
+    const form=document.getElementById('contactForm');
+    if(!form)return;
+    form.addEventListener('submit',event=>{
+      event.preventDefault();
+      if(!form.reportValidity())return;
+      const data=new FormData(form);
+      const topic=String(data.get('topic')||'General question').trim();
+      const subject=String(data.get('subject')||'').trim();
+      const message=String(data.get('message')||'').trim();
+      if(!subject||message.length<10)return;
+      const title='[Website Contact] '+subject.slice(0,100);
+      const body=[
+        '### Topic',topic,'',
+        '### Message',message,'',
+        '---','Sent through the MINI ADAM website contact form.'
+      ].join('\\n');
+      const url='https://github.com/pref1x-1/MiniAdam-AI/issues/new?'+new URLSearchParams({title,body}).toString();
+      window.location.assign(url);
+    });
   }
 
   function initNavigation(){
@@ -258,12 +342,15 @@
   }
 
   langButton?.addEventListener('click',()=>applyLanguage(language==='he'?'en':'he'));
-  language=readStorage('miniadam-site-language','he')==='en'?'en':'he';
+  language=readStorage('miniadam-site-language-v2','en')==='he'?'he':'en';
   applyLanguage(language);
   initNavigation();
   initAccessibility();
   initReveal();
   initParallax();
   initFaq();
+  initIntegrityCopy();
+  initContact();
+  checkRepositoryStars();
   checkLatestRelease();
 })();
