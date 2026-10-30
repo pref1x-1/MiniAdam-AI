@@ -44,6 +44,9 @@
       langButton.setAttribute('aria-label',language==='he'?'Switch to English':'החלף לעברית');
     }
     renderDownload();
+    a11yTrigger?.setAttribute('aria-label',language==='he'?'פתח תפריט נגישות':'Open accessibility menu');
+    a11yClose?.setAttribute('aria-label',language==='he'?'סגירת תפריט נגישות':'Close accessibility menu');
+    menuToggle?.setAttribute('aria-label',language==='he'?'פתח תפריט ניווט':'Open navigation');
     writeStorage('miniadam-site-language',language);
   }
 
