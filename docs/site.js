@@ -206,7 +206,7 @@
   }
   function initParallax(){
     const stage=document.getElementById('deviceStage');
-    if(!stage||!window.matchMedia('(pointer:fine)').matches||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    if(!stage||root.classList.contains('a11y-reduced-motion')||!window.matchMedia('(pointer:fine)').matches||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     const visual=stage.closest('.hero-visual');
     visual?.addEventListener('pointermove',event=>{
       const rect=visual.getBoundingClientRect();
