@@ -1,114 +1,75 @@
-<div align="center">
-
 # MINI ADAM
 
-**Your local AI workspace for Windows.**
+**A local AI desktop workspace for Windows.**
 
-Chat with local models, keep your conversations organized, manage AI memory, and work with files — in one desktop experience.
+MINI ADAM connects to local models through [Ollama](https://ollama.com), with a focused desktop interface for conversations, model management, local memory, and file workflows.
 
-**Aurora V2 · Windows x64 · Powered by Ollama**
+- **Website & download guide:** https://pref1x-1.github.io/MiniAdam-AI/
+- **GitHub Releases:** https://github.com/pref1x-1/MiniAdam-AI/releases
+- **Ollama:** https://ollama.com/download
+- **Version:** 3.5.0 — Nordic Aurora
+- **Platform:** Windows 10/11 · x64
 
-[Download for Windows](./MiniAdam-V2.exe) · [Get Ollama](https://ollama.com/download) · [Report an issue](https://github.com/pref1x-1/MiniAdam/issues)
+## Download
 
-</div>
+Download the **Setup installer**, not the standalone application executable:
 
----
+[Download MINI ADAM Setup](https://github.com/pref1x-1/MiniAdam-AI/releases/latest/download/MiniAdam-Setup.exe)
 
-## Overview
+The website checks the latest GitHub Release and enables the download button only when an asset named `MiniAdam-Setup.exe` is attached. If the installer is not attached yet, the website directs visitors to the Releases page instead of displaying a broken download.
 
-MINI ADAM is a lightweight desktop companion that connects to **Ollama** on your own computer. It provides a modern interface for local language models, with optional Adam-style conversations, saved chats, memory, model controls, and permission-based file actions.
+## Install
 
-**No account is required by MINI ADAM.** For local Ollama models, inference takes place on your computer. Downloading models and visiting external links requires internet access; cloud models, if selected, may send data to their provider.
+1. Download `MiniAdam-Setup.exe` from the official Releases page.
+2. Run the installer, read and accept the terms, choose the installation folder, and select shortcut options.
+3. Install and start [Ollama](https://ollama.com/download) separately.
+4. Launch MINI ADAM, complete onboarding, check your hardware, and choose a model.
+
+The installer does **not** bundle Ollama or AI models. Model downloads require internet access and disk space.
 
 ## Features
 
-| Area | What you get |
-| :-- | :-- |
-| **Conversations** | Streaming replies, multi-chat history, search, editing, branching, and chat exports. |
-| **Adam Mode** | Turn an Adam-inspired style on or off for each chat; choose the default in settings. |
-| **Language preferences** | Automatic language matching, or a Hebrew/English preference. |
-| **Local models** | Discover, download, select, refresh, unload, and remove supported Ollama models. |
-| **Model controls** | Adjustable effort levels and thinking output when supported by the selected model. |
-| **Memory** | Locally saved memories you can review, edit, or remove. |
-| **File support** | Attach supported text/code files and images; image understanding requires a compatible vision model. |
-| **Agent tools** | File actions within an approved workspace, with an explicit approval step. |
-| **Productivity** | Message bookmarks, quotes, chat snapshots, restoration, statistics, and HTML export. |
-| **Desktop experience** | System tray, background process, focus mode, compact layout, light/dark theme, and keyboard shortcuts. |
+- Local chat with Ollama models and streaming responses.
+- Chat history, search, editing, duplication, export, snapshots, and bookmarks.
+- Optional Adam Mode, language preferences, and persistent local memories.
+- Model discovery, download, selection, refresh, unload, and deletion.
+- File and image attachments; image analysis requires a compatible vision model.
+- Approval-based Agent file actions inside an approved workspace.
+- Windows System Tray, focus mode, keyboard shortcuts, and Nordic Aurora styling.
 
-> Features such as thinking output, vision, and response quality depend on the capabilities of the model you install. MINI ADAM is an interface with an optional personality layer, **not a newly fine-tuned foundation model**.
+Model features such as vision, thinking output, and response quality depend on the capabilities of the selected model. MINI ADAM is a desktop interface with an optional personality layer; it is not a newly fine-tuned foundation model.
 
-## Download & installation
+## Privacy and security
 
-### Requirements
+- Chats and memories are stored locally under `%APPDATA%\\MiniAdam\\`.
+- With a local Ollama model, inference runs on your computer. Downloading models and updates requires internet access.
+- The installer is **not digitally code-signed**. Windows may show a security or reputation warning.
+- Do not disable Microsoft Defender, add antivirus exclusions, or bypass a threat detection. Download only from this repository's Releases page and verify the checksum.
+- A previous development build received an antivirus detection. The current installer has not been independently cleared by Microsoft; do not distribute it broadly until the current file has been scanned and any detections have been reviewed.
 
-- Windows 10 or 11, **64-bit** (intended target; wider compatibility is not fully verified).
-- [Ollama](https://ollama.com/download), installed and running.
-- An available **Microsoft Edge** or **Google Chrome** installation for the app-mode window.
-- Enough free storage and memory for your chosen AI model. A dedicated GPU is helpful but not mandatory for every model.
+## Integrity — Setup 3.5.0
 
-### Get started
-
-1. Download [`MiniAdam-V2.exe`](./MiniAdam-V2.exe) from this repository.
-2. Install and start [Ollama](https://ollama.com/download).
-3. Launch `MiniAdam-V2.exe`.
-4. Open the model library in MINI ADAM and install a model suitable for your hardware, or run an Ollama command such as:
-
-   ```powershell
-   ollama pull qwen3:4b
-   ```
-
-5. Select that model in MINI ADAM and start a chat. Adjust the language preference or Adam Mode whenever you like.
-
-If Ollama is unavailable, follow the in-app setup and hardware guidance. Closing the app window may leave MINI ADAM running in the system tray; use **Quit** from the tray menu to exit completely.
-
-## Adam Mode
-
-Adam Mode is an **optional conversational style**, not a claim that you're chatting with the real Adam. You can toggle it independently for each chat, or change the default behavior in settings.
-
-For more natural Hebrew, try the Hebrew language preference and a model with stronger multilingual support. No prompt can guarantee perfect output from every small model.
-
-## Your data & safety
-
-- Chats and memory are stored locally under `%APPDATA%\MiniAdam\`.
-- Back up your data before upgrading or resetting the app.
-- The built-in agent is limited to its approved folder and requests confirmation for actions. Review file edits and keep backups.
-- Do not give the assistant sensitive information you would not want stored on your computer.
-- AI-generated information can be incorrect; independently verify important output, especially for medical, legal, financial, or security decisions.
-- This Windows executable is **not digitally code-signed**. Windows may show a security warning. Verify the file's source and integrity rather than ignoring security warnings.
-
-### File integrity — Aurora V2
-
-SHA-256 (`MiniAdam-V2.exe`):
+Expected SHA-256 for the installer asset named `MiniAdam-Setup.exe`:
 
 ```text
-d2827956fb5b27f3d72995bf46b0e9f2ba11f699a13ba5db9f22e2a8441d2c37
+f2eea32333e97af4d879c9b27296f7a80332a1d20b9feb2cd7d16df248dd357d
 ```
 
-Check it in PowerShell:
+Verify in PowerShell:
 
 ```powershell
-Get-FileHash .\MiniAdam-V2.exe -Algorithm SHA256
+Get-FileHash .\\MiniAdam-Setup.exe -Algorithm SHA256
 ```
 
-The checksum above applies to this exact Aurora V2 build, not future releases.
+This checksum applies only to the exact MINI ADAM 3.5.0 Setup build.
 
-## Known limitations
+## Publishing
 
-- The current app window uses Edge/Chrome **app mode**, not an embedded native Windows WebView. Taskbar icon behavior may vary.
-- Model responses depend on local hardware, Ollama availability, and model capabilities.
-- Native Windows + Ollama integration has **not yet been comprehensively tested across different PCs**; please report reproducible bugs.
-- This repository distributes the **compiled Windows application only**. Source code is not published here.
+- The download site is in `docs/` and is deployed by GitHub Actions.
+- In repository **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source.
+- The latest Release must contain the setup file renamed to exactly `MiniAdam-Setup.exe`.
+- See [the Hebrew release upload guide](./RELEASE_UPLOAD_GUIDE_HE.md) and `scripts/Publish-Setup-Release.ps1`.
 
-## About the project
+## About
 
-Made by **[Adam Marhasin (Pref1x)](https://github.com/pref1x-1)** as an experiment in making local AI more approachable and enjoyable to use.
-
-MINI ADAM is an independent project and is **not affiliated with Ollama, Hugging Face, or any model provider**.
-
----
-
-<div align="center">
-
-**Local AI. Your machine. Your workflow.**
-
-</div>
+Made by [Adam Marhasin (Pref1x)](https://github.com/pref1x-1). MINI ADAM is an independent project and is not affiliated with Ollama, Hugging Face, Microsoft, or model providers.
