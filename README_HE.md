@@ -1,76 +1,56 @@
 # MINI ADAM
 
-**סביבת AI מקומית ל־Windows.**
+**סביבת AI מקומית למחשב שלך.**
 
-MINI ADAM מתחבר למודלים מקומיים דרך [Ollama](https://ollama.com), עם ממשק Desktop לשיחות, ניהול מודלים, זיכרון מקומי ועבודה עם קבצים.
+MINI ADAM מביא מודלים מקומיים לחוויית Desktop ממוקדת ל־Windows. אפשר לשוחח עם מודלים, לארגן שיחות, לשמור זיכרונות במחשב, לנהל מודלים ולעבוד עם קבצים.
 
-- **אתר ומדריך הורדה:** https://pref1x-1.github.io/MiniAdam-AI/
-- **גרסאות GitHub:** https://github.com/pref1x-1/MiniAdam-AI/releases
-- **Ollama:** https://ollama.com/download
-- **גרסה:** 3.5.0 — Nordic Aurora
-- **מידע משפטי ונגישות:** [פרטיות](./docs/privacy.html) · [תנאי שימוש](./docs/terms.html) · [הסתייגות](./docs/disclaimer.html) · [נגישות](./docs/accessibility.html) · [קרדיטים](./docs/third-party.html)
-- **מערכת:** Windows 10/11 · x64
+<p align="right">
+  <a href="https://pref1x-1.github.io/MiniAdam-AI/">אתר הפרויקט</a> ·
+  <a href="https://github.com/pref1x-1/MiniAdam-AI/releases/latest">הורדה</a> ·
+  <a href="https://github.com/pref1x-1/MiniAdam-AI/graphs/contributors">תורמים</a>
+</p>
 
-## הורדה
+## הגרסה האחרונה
 
-יש להוריד את **קובץ המתקין Setup**, ולא את קובץ האפליקציה העצמאי:
+**3.6.0 — Glass Edition**
 
-[הורדת MINI ADAM Setup](https://github.com/pref1x-1/MiniAdam-AI/releases/download/App/MiniAdam-Setup3.5.0.1.exe)
+[הורדת MINI ADAM Setup](https://github.com/pref1x-1/MiniAdam-AI/releases/latest)
 
-האתר מזהה אוטומטית קובץ מצורף ששמו מתחיל ב־`MiniAdam-Setup` ומסתיים ב־`.exe`. לכן אין צורך ששם הקובץ יהיה זהה בדיוק לשם קבוע.
-
-## התקנה
-
-1. הורד את קובץ ה־Setup מהאתר הרשמי או מעמוד Releases.
-2. הפעל את המתקין, קרא ואשר את התקנון, בחר תיקיית התקנה ואפשרויות קיצורי דרך.
-3. התקן והפעל את [Ollama](https://ollama.com/download) בנפרד.
-4. פתח את MINI ADAM, השלם onboarding, בדוק את החומרה ובחר מודל מתאים.
-
-המתקין **אינו כולל את Ollama או מודלי AI**. הורדת מודלים דורשת חיבור לאינטרנט ונפח אחסון.
+MINI ADAM מתחבר אל [Ollama](https://ollama.com/download). יש להתקין את Ollama ואת מודלי ה־AI בנפרד; הם אינם כלולים במתקין.
 
 ## יכולות
 
-אתר ההורדה כולל ממשק זכוכית רספונסיבי, הדמיית מוצר בתלת־ממד, מעבר בין עברית לאנגלית ותפריט נגישות עם שינוי גודל תצוגה, ניגודיות, הדגשת קישורים, גופן קריא, גווני אפור, ריווח טקסט והפחתת תנועה.
-
-
 - צ'אט מקומי עם מודלי Ollama ותשובות בזרימה.
-- היסטוריית שיחות, חיפוש, עריכה, שכפול, ייצוא, נקודות שחזור וסימניות.
-- Adam Mode אופציונלי, בחירת שפה וזיכרונות מקומיים מתמשכים.
-- גילוי מודלים, הורדה, בחירה, רענון, פריקה ומחיקה.
-- צירוף קבצים ותמונות; ניתוח תמונות דורש מודל Vision תואם.
-- פעולות Agent לקבצים באזור עבודה מאושר, עם בקשת אישור לפני ביצוע.
-- Windows System Tray, מצב ריכוז, קיצורי מקלדת ועיצוב Nordic Aurora.
+- חיפוש, שינוי שם, שכפול, נעיצה, מועדפים, תיקיות, תגיות, סימניות ונקודות שחזור לשיחות.
+- ייצוא שיחות ל־Markdown, ‏HTML ו־JSON.
+- היסטוריית שיחות, הגדרות וזיכרונות אישיים שנשמרים מקומית.
+- גילוי, הורדה, בחירה, פריקה והסרה של מודלים.
+- צירוף קבצים ותמונות. ניתוח תמונות דורש מודל Vision תואם.
+- פעולות Agent אופציונליות באזור עבודה מאושר, עם אישור לפני שינוי קבצים.
+- קיצורי מקלדת, מצב ריכוז ותמיכה ב־Windows System Tray.
 
-יכולות כמו ראייה ממוחשבת, הצגת חשיבה ואיכות התשובות תלויות במודל שנבחר. MINI ADAM הוא ממשק Desktop עם שכבת אישיות אופציונלית, ולא מודל בסיס שעבר Fine-tuning חדש.
+## מערכות הפעלה
+
+<kbd>Windows 10 / 11 · ‏64-bit</kbd>
+
+הגרסה הנוכחית מיועדת ל־Windows בלבד. גרסאות macOS ו־Linux עדיין אינן זמינות.
+
+## התחלה מהירה
+
+1. הורד את קובץ ה־Setup מ־[GitHub Releases](https://github.com/pref1x-1/MiniAdam-AI/releases/latest).
+2. התקן והפעל את [Ollama](https://ollama.com/download).
+3. פתח את MINI ADAM ובחר מודל שמתאים למחשב.
 
 ## פרטיות ואבטחה
 
-- שיחות וזיכרונות נשמרים מקומית תחת `%APPDATA%\\MiniAdam\\`.
-- בשימוש במודל Ollama מקומי, העיבוד מתבצע במחשב שלך. הורדת מודלים ועדכונים דורשת אינטרנט.
-- המתקין **אינו חתום דיגיטלית**. ייתכן ש־Windows יציג אזהרת אבטחה או מוניטין.
-- אין לכבות את Microsoft Defender, להוסיף חריגות או לעקוף זיהוי איום. יש להוריד רק מה־Releases הרשמיים ולאמת SHA-256.
-- גרסת פיתוח קודמת קיבלה זיהוי אנטי־וירוס. המתקין הנוכחי עדיין לא קיבל אישור עצמאי של Microsoft; אין להפיץ אותו בהיקף רחב לפני סריקה ובירור זיהויים.
+- בשימוש במודל Ollama מקומי, העיבוד מתבצע במחשב שלך.
+- היסטוריית השיחות והזיכרונות נשמרים מקומית במכשיר.
+- שימוש בספק ענן חיצוני עשוי להעביר אליו הודעות או קבצים.
+- המתקין ל־Windows אינו חתום דיגיטלית. קרא אזהרות אבטחה; אין לכבות את Microsoft Defender או לעקוף זיהויים.
+- לפני התקנה, אמת את קובץ ההתקנה באמצעות ערך SHA-256 העדכני ב[אתר הרשמי](https://pref1x-1.github.io/MiniAdam-AI/#integrity).
 
-## אימות הקובץ — Setup 3.5.0
+## הפרויקט
 
-SHA-256:
+נוצר על ידי [Adam Marhasin (Pref1x)](https://github.com/pref1x-1). MINI ADAM הוא פרויקט עצמאי ואינו קשור ל־Ollama, ל־Microsoft או לספק מודלים כלשהו.
 
-```text
-f2eea32333e97af4d879c9b27296f7a80332a1d20b9feb2cd7d16df248dd357d
-```
-
-בדיקה ב־PowerShell:
-
-```powershell
-Get-FileHash .\\MiniAdam-Setup3.5.0.1.exe -Algorithm SHA256
-```
-
-## פרסום
-
-האתר קורא את ה־GitHub Release האחרון ובוחר נכס שהשם שלו מתחיל ב־`MiniAdam-Setup` ומסתיים ב־`.exe`. הקובץ הנוכחי הוא `MiniAdam-Setup3.5.0.1.exe`, תחת Release בשם `App`.
-
-כדי לפרסם את האתר מתיקיית `docs/`, בחר ב־**Settings → Pages → Deploy from a branch → main → /docs**.
-
-## אודות
-
-נוצר על ידי [Adam Marhasin (Pref1x)](https://github.com/pref1x-1). MINI ADAM הוא פרויקט עצמאי ואינו קשור ל־Ollama, Hugging Face, Microsoft או לספקי מודלים.
+שאלות, הצעות ודיווח על תקלות: [יצירת קשר עם הפרויקט](https://pref1x-1.github.io/MiniAdam-AI/contact.html).
