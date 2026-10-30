@@ -596,3 +596,7 @@ html.a11y-contrast .a11y-panel{background:#000!important;border:2px solid #fff!i
 html.a11y-contrast .a11y-trigger{background:#000!important;border:2px solid #fff!important;color:#fff!important}
 html.a11y-contrast .a11y-trigger .icon{background:#ff0!important;color:#000!important;border-color:#ff0!important}
 html.a11y-contrast .a11y-options button[aria-pressed="true"]{background:#ff0!important;color:#000!important}
+
+
+/* Keep the Material Symbols ligatures intact in the readable-font mode. */
+html.a11y-readable-font .icon,html.a11y-readable-font .icon *{font-family:"Material Symbols Rounded"!important;letter-spacing:normal!important;font-weight:500!important}
