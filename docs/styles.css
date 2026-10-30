@@ -784,3 +784,9 @@ html.a11y-readable-font .icon,html.a11y-readable-font .icon *{font-family:"Mater
 /* The floating navigation also applies to legal document pages. */
 .legal-main{padding-top:132px}
 @media(max-width:640px){.legal-main{padding-top:112px}}
+
+/* Keep interactive motion lightweight: animate transforms and borders, not large shadows. */
+.site-header .nav-shell,.site-footer{transition:transform .24s ease,border-color .2s ease}
+.site-header .nav-shell:hover{transform:translateY(-1px)}
+.site-footer:hover{transform:translateY(-3px)}
+@media(max-width:760px){.site-header .nav-shell:hover,.site-footer:hover{transform:none}}

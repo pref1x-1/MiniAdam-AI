@@ -49,6 +49,10 @@ MINI ADAM מתחבר אל [Ollama](https://ollama.com/download). יש להתקי
 - המתקין ל־Windows אינו חתום דיגיטלית. קרא אזהרות אבטחה; אין לכבות את Microsoft Defender או לעקוף זיהויים.
 - לפני התקנה, אמת את קובץ ההתקנה באמצעות ערך SHA-256 העדכני ב[אתר הרשמי](https://pref1x-1.github.io/MiniAdam-AI/#integrity).
 
+## קרדיטים
+
+תהליך הפיתוח נעזר גם ב־ChatGPT של OpenAI לצד תכנון, מימוש, בדיקות והחלטות מוצר אנושיות.
+
 ## הפרויקט
 
 נוצר על ידי [Adam Marhasin (Pref1x)](https://github.com/pref1x-1). MINI ADAM הוא פרויקט עצמאי ואינו קשור ל־Ollama, ל־Microsoft או לספק מודלים כלשהו.
