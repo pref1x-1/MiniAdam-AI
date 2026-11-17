@@ -126,8 +126,8 @@
     const url=available?releaseAsset.browser_download_url:releasesPage;
     downloadButton.href=url;
     finalDownload.href=url;
-    const version=available?((releaseAsset.name.match(/(\d+\.\d+(?:\.\d+){1,2})/)||[])[1]||'SETUP'):'SETUP';
-    if(versionBadge)versionBadge.textContent='v'+version;
+    const tagVersion=String(releaseInfo?.tag_name||'').match(/^v?(\d+\.\d+(?:\.\d+){0,2})$/i); const fileVersion=releaseAsset?.name.match(/(\d+\.\d+(?:\.\d+){0,2})/); const version=available?(tagVersion?.[1]||fileVersion?.[1]||'SETUP'):'SETUP';
+    if(versionBadge)versionBadge.textContent=version==='SETUP'?'SETUP':'v'+version;
     const productVersion=document.getElementById('productVersionBadge');
     if(productVersion)productVersion.textContent='MINI ADAM '+version;
     downloadButton.title=available?releaseAsset.name:(language==='he'?'פתיחת עמוד הגרסאות':'Open releases page');

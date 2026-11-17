@@ -1,7 +1,7 @@
 :root{
   color-scheme:dark;
-  --bg:#121820;--bg-deep:#0c1218;--bg-raised:#17212b;--panel:#1e2530;--panel-glass:rgba(30,37,48,.58);
-  --text:#f3f4f6;--muted:#a8b2bf;--quiet:#6b7280;--green:#00c896;--green-bright:#10b981;
+  --bg:#080f20;--bg-deep:#060d1c;--bg-raised:#101c31;--panel:#142238;--panel-glass:rgba(30,37,48,.58);
+  --text:#f3f4f6;--muted:#bdcce0;--quiet:#8193b0;--green:#56adff;--green-bright:#82c9ff;
   --line:rgba(240,246,250,.10);--line-strong:rgba(240,246,250,.17);--glass-line:rgba(240,248,250,.20);
   --shadow:0 28px 90px rgba(0,0,0,.30);--radius:22px;
   --font:"Assistant",Arial,sans-serif;
@@ -14,7 +14,7 @@ a{color:inherit;text-decoration:none}
 button{font:inherit}
 .icon{font-family:"Material Symbols Rounded";font-size:20px;font-weight:500;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;word-wrap:normal;direction:ltr;font-feature-settings:"liga";-webkit-font-feature-settings:"liga";font-variation-settings:"FILL" 0,"wght" 500,"GRAD" 0,"opsz" 24;-webkit-font-smoothing:antialiased;display:inline-flex;align-items:center;justify-content:center;flex:none;user-select:none}
 .container{width:min(1200px,calc(100% - 56px));margin-inline:auto}
-.skip-link{position:absolute;z-index:300;top:-70px;inset-inline-start:16px;padding:11px 15px;border:1px solid #071d17;border-radius:9px;background:var(--green);color:#071d17;font-size:14px;font-weight:800}
+.skip-link{position:absolute;z-index:300;top:-70px;inset-inline-start:16px;padding:11px 15px;border:1px solid #071629;border-radius:9px;background:var(--green);color:#071629;font-size:14px;font-weight:800}
 .skip-link:focus{top:12px}
 :focus-visible{outline:3px solid var(--green);outline-offset:4px;border-radius:4px}
 button,a,summary{-webkit-tap-highlight-color:transparent}
@@ -39,11 +39,11 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
 .menu-button .icon{width:18px;height:18px}
 
 /* Glass / Aurora hero */
-.hero-section{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 75% 15%,rgba(0,200,150,.09),transparent 36%),linear-gradient(180deg,#151e27 0%,#121820 88%)}
+.hero-section{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 75% 15%,rgba(0,200,150,.09),transparent 36%),linear-gradient(180deg,#151e27 0%,#080f20 88%)}
 .hero-section:before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:68px 68px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
 .hero-section:after{content:"";position:absolute;inset:-25% -10%;z-index:-1;pointer-events:none;background:conic-gradient(from 210deg at 70% 35%,transparent 0deg,rgba(0,200,150,.06) 65deg,transparent 145deg,rgba(96,150,150,.045) 220deg,transparent 310deg);filter:blur(58px);opacity:.75;animation:aurora-breathe 18s ease-in-out infinite alternate}
 .hero-ambient{position:absolute;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(50px);opacity:.18}
-.ambient-a{width:450px;height:450px;top:80px;inset-inline-start:48%;background:radial-gradient(circle,#00c896,transparent 66%);animation:ambient-drift 18s ease-in-out infinite alternate}
+.ambient-a{width:450px;height:450px;top:80px;inset-inline-start:48%;background:radial-gradient(circle,#56adff,transparent 66%);animation:ambient-drift 18s ease-in-out infinite alternate}
 .ambient-b{width:360px;height:360px;bottom:-180px;inset-inline-end:4%;background:radial-gradient(circle,#427e88,transparent 68%);animation:ambient-drift 22s ease-in-out infinite alternate-reverse}
 .hero-grid{position:relative;min-height:660px;display:grid;grid-template-columns:minmax(0,.82fr) minmax(560px,1.18fr);align-items:center;gap:32px;padding-block:68px 48px}
 .hero-copy{position:relative;z-index:3;max-width:540px}
@@ -194,7 +194,7 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
 .memory-node{position:absolute;z-index:3;width:9px;height:9px;border:2px solid #13242a;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(0,200,150,.12)}
 .node-a{top:45px;inset-inline-start:26%}.node-b{bottom:39px;inset-inline-end:28%}.node-c{top:47px;inset-inline-end:29%;background:#b7d4d0}
 .feature-footnote{margin:14px 0 0;color:var(--quiet);font-size:9px}
-.features-section{padding-block:90px 102px;border-block:1px solid var(--line);background:linear-gradient(180deg,#141d26,#121820)}
+.features-section{padding-block:90px 102px;border-block:1px solid var(--line);background:linear-gradient(180deg,#141d26,#080f20)}
 .section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:45px;margin-bottom:34px}
 .section-heading>p{max-width:380px;margin:0 0 4px;color:var(--muted);font-size:11px;line-height:1.9}
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -707,7 +707,7 @@ html.a11y-readable-font .icon,html.a11y-readable-font .icon *{font-family:"Mater
 .contact-form textarea{min-height:145px;resize:vertical;line-height:1.7}
 .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:rgba(0,200,150,.55);box-shadow:0 0 0 3px rgba(0,200,150,.10)}
 .contact-form input::placeholder,.contact-form textarea::placeholder{color:#61727b}
-.contact-form option{background:#17212b;color:#fff}
+.contact-form option{background:#101c31;color:#fff}
 .contact-privacy{margin:5px 0 8px;color:#87969d;font-size:12px;line-height:1.8}
 .contact-submit{width:fit-content;min-width:190px}
 .contact-aside{display:grid;gap:0}
@@ -790,3 +790,12 @@ html.a11y-readable-font .icon,html.a11y-readable-font .icon *{font-family:"Mater
 .site-header .nav-shell:hover{transform:translateY(-1px)}
 .site-footer:hover{transform:translateY(-3px)}
 @media(max-width:760px){.site-header .nav-shell:hover,.site-footer:hover{transform:none}}
+
+/* MINI ADAM · Midnight/Electric Blue — 2026-11-17 */
+:root{color-scheme:dark;--bg:#080f20;--bg-deep:#060d1c;--bg-raised:#101c31;--panel:#142238;--panel-glass:rgba(20,34,56,.67);--green:#56adff;--green-bright:#82c9ff;--text:#f3f7ff;--muted:#bdcce0;--quiet:#8193b0;--line:rgba(183,213,255,.11);--line-strong:rgba(183,213,255,.19);--glass-line:rgba(150,199,255,.23);--shadow:0 28px 90px rgba(1,5,16,.45)}
+.brand-mark,.device-mark,.closing-mark{background:transparent!important;border-color:transparent!important;box-shadow:none!important;overflow:visible!important}
+.brand-mark img,.device-mark img,.closing-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 10px rgba(42,130,255,.17))}
+.brand-mark>span,.brand-mark>i{display:none!important}
+.button-primary{background:linear-gradient(130deg,#459dff,#74c1ff);color:#071426;box-shadow:0 14px 38px rgba(42,135,255,.22)}
+:focus-visible{outline-color:#92d5ff;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.brand-mark img,.device-mark img,.closing-mark img{animation:none!important;transition:none!important}}

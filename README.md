@@ -12,11 +12,13 @@ MINI ADAM brings local language models into a focused Windows desktop experience
 
 ## Latest version
 
-**3.6.0 — Glass Edition**
+**3.6.0 — Glass Edition (last published installer)**
 
 [Download MINI ADAM Setup](https://github.com/pref1x-1/MiniAdam-AI/releases/latest)
 
 MINI ADAM connects to [Ollama](https://ollama.com/download). Ollama and AI models are installed separately and are not bundled with the installer.
+
+**November 2026:** The website has been refreshed to a midnight-navy/electric-blue design. The approved 3.6.1 candidate is not yet a GitHub Release; publish only after the SHA-256-checked installer asset is uploaded. The release download on the website always follows a real published GitHub asset.
 
 ## Features
 

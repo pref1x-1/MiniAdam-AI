@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#31434a"/><stop offset="1" stop-color="#16232d"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="17" fill="url(#g)" stroke="#00C896" stroke-opacity=".65"/><path d="M12 47V17h7l13 19 13-19h7v30h-8V30L32 47 20 30v17z" fill="#F3F4F6"/><circle cx="50" cy="48" r="3" fill="#00C896"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MINI ADAM mark">
+<defs>
+ <linearGradient id="left" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#c0eaff"/><stop offset=".27" stop-color="#4da5ff"/><stop offset=".72" stop-color="#1646c0"/><stop offset="1" stop-color="#38e5ff"/></linearGradient>
+ <linearGradient id="right" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#78ceff"/><stop offset=".5" stop-color="#1e5beb"/><stop offset="1" stop-color="#59e9ff"/></linearGradient>
+ <linearGradient id="center" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#153dab"/><stop offset=".73" stop-color="#57cbff"/><stop offset="1" stop-color="#03e5ff"/></linearGradient>
+ <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g filter="url(#glow)" stroke="#87dfff" stroke-width="2" stroke-linejoin="round">
+ <path fill="url(#left)" d="M56 158 Q56 151 62 155 L157 220 L256 335 L256 374 L151 267 L151 362 L59 428 Q53 432 53 423 Z"/>
+ <path fill="url(#right)" d="M456 158 Q456 151 450 155 L355 220 L256 335 L256 374 L361 267 L361 362 L453 428 Q459 432 459 423 Z"/>
+ <path fill="url(#left)" d="M90 113 L238 89 Q247 87 250 102 L256 221 L181 141 Z"/>
+ <path fill="url(#right)" d="M422 113 L274 89 Q265 87 262 102 L256 221 L331 141 Z"/>
+ <path fill="url(#center)" d="M151 267 L256 374 L361 267 L361 319 L256 422 L151 319 Z"/>
+</g></svg>

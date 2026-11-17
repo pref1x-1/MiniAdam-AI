@@ -1,62 +1,33 @@
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$SetupPath
+  [Parameter(Mandatory = $true)][string]$SetupPath,
+  [Parameter(Mandatory = $true)][string]$ChecksumsPath
 )
-
 $ErrorActionPreference = 'Stop'
+$repo = 'pref1x-1/MiniAdam-AI'
+$tag = 'v3.6.1'
+$expected = 'a2522cb073b30abdf4f3587d8e26127c5fd7de14ba6a7ea7c54a926ef422e315'
+if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { throw 'GitHub CLI (gh) is required: https://cli.github.com/' }
+$setup = (Resolve-Path -LiteralPath $SetupPath).Path
+$hashFile = (Resolve-Path -LiteralPath $ChecksumsPath).Path
+$actual = (Get-FileHash -LiteralPath $setup -Algorithm SHA256).Hash.ToLowerInvariant()
+if ($actual -ne $expected) { throw "SHA-256 does not match the approved setup. Expected $expected, got $actual. No upload performed." }
+if (-not ((Get-Content -LiteralPath $hashFile -Raw) -match [regex]::Escape($expected))) { throw 'Checksum file does not contain the approved setup hash' }
+& gh auth status
+if ($LASTEXITCODE -ne 0) { throw 'gh auth status failed. Run gh auth login first.' }
+& gh release view $tag -R $repo *> $null
+if ($LASTEXITCODE -eq 0) { throw "Release $tag already exists. Refusing to replace a published installer." }
+$notes = @"
+MINI ADAM 3.6.1 — Windows x64 review candidate.
 
-$Tag = 'v3.5.0'
-$AssetName = 'MiniAdam-Setup.exe'
-$ExpectedSha256 = 'f2eea32333e97af4d879c9b27296f7a80332a1d20b9feb2cd7d16df248dd357d'
-$Repository = 'pref1x-1/MiniAdam-AI'
-$ResolvedSetupPath = (Resolve-Path -LiteralPath $SetupPath -ErrorAction Stop).Path
+Built from the approved 17 November 2026 Go source.
+SHA-256 MiniAdam-Setup.exe: $expected
 
-if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
-    throw 'GitHub CLI is required. Install it from https://cli.github.com/ and run gh auth login.'
-}
+Ollama and AI models are installed separately.
+The setup downloads a pinned and verified WebView bridge DLL during installation.
+The installer is unsigned. Do not disable Microsoft Defender or SmartScreen.
 
-if (-not (Test-Path -LiteralPath $ResolvedSetupPath -PathType Leaf)) {
-    throw "Setup file not found: $ResolvedSetupPath"
-}
-
-$actual = (Get-FileHash -LiteralPath $ResolvedSetupPath -Algorithm SHA256).Hash.ToLowerInvariant()
-if ($actual -ne $ExpectedSha256) {
-    throw "SHA-256 mismatch. Expected $ExpectedSha256 but found $actual. Nothing was uploaded."
-}
-
-Write-Host "Verified Setup SHA-256: $actual" -ForegroundColor Green
-gh auth status
-if ($LASTEXITCODE -ne 0) {
-    throw 'GitHub CLI is not authenticated. Run gh auth login first.'
-}
-
-$null = gh release view $Tag --repo $Repository 2>$null
-$releaseExists = ($LASTEXITCODE -eq 0)
-
-if ($releaseExists) {
-    Write-Host "Release $Tag already exists. Uploading/replacing only the Setup asset..."
-    gh release upload $Tag "$ResolvedSetupPath#$AssetName" --repo $Repository --clobber
-    $uploadExitCode = $LASTEXITCODE
-}
-else {
-    $notes = @'
-MINI ADAM 3.5.0 — Nordic Aurora
-
-Windows x64 Setup installer.
-Verify the published SHA-256 before running.
-
-This installer is not digitally signed. Do not bypass antivirus or SmartScreen warnings.
-'@
-    gh release create $Tag "$ResolvedSetupPath#$AssetName" --repo $Repository --title 'MINI ADAM 3.5.0 — Nordic Aurora' --notes $notes --target main --latest
-    $uploadExitCode = $LASTEXITCODE
-}
-
-if ($uploadExitCode -ne 0) {
-    throw "GitHub Release upload failed with exit code $uploadExitCode."
-}
-
-Write-Host ""
-Write-Host "Published $AssetName to:"
-Write-Host "https://github.com/$Repository/releases/tag/$Tag" -ForegroundColor Green
-Write-Host "Expected download URL:"
-Write-Host "https://github.com/$Repository/releases/latest/download/$AssetName"
+Windows interactive install/upgrade/uninstall testing, live Ollama testing, and a Defender scan were not executed in the original build environment.
+"@
+& gh release create $tag "$setup#MiniAdam-Setup.exe" "$hashFile#SHA256SUMS.txt" --repo $repo --title 'MINI ADAM 3.6.1 — Windows x64' --notes $notes --latest
+if ($LASTEXITCODE -ne 0) { throw 'GitHub Release upload failed.' }
+Write-Host "Published $tag with verified setup SHA-256: $actual" -ForegroundColor Green

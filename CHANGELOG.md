@@ -1,5 +1,11 @@
 # MINI ADAM — Changelog
 
+## Website design refresh · 17 November 2026
+
+- Updated GitHub Pages branding to navy and electric blue with a geometric M icon.
+- Improved responsive branding and version display based on published release tags.
+- This website change does not publish or certify a new Windows binary.
+
 ## 3.6.0 · Glass Edition
 **30 October 2026**
 
