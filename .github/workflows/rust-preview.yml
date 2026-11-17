@@ -1,0 +1,23 @@
+name: Rust Windows Preview
+on:
+  push:
+    branches: [rust-windows-preview]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Unpack preview source
+        shell: pwsh
+        run: |
+          $encoded = Get-Content rust-preview/source.zip.b64 -Raw
+          [IO.File]::WriteAllBytes("$env:RUNNER_TEMP/source.zip", [Convert]::FromBase64String($encoded))
+          Expand-Archive "$env:RUNNER_TEMP/source.zip" -DestinationPath rust-preview/build
+      - name: Build preview
+        run: cargo build --release --manifest-path rust-preview/build/src-tauri/Cargo.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MINI-ADAM-Rust-Preview
+          path: rust-preview/build/src-tauri/target/release/mini-adam.exe
