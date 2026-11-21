@@ -126,7 +126,7 @@
     const url=available?releaseAsset.browser_download_url:releasesPage;
     downloadButton.href=url;
     finalDownload.href=url;
-    const tagVersion=String(releaseInfo?.tag_name||'').match(/^v?(\d+\.\d+(?:\.\d+){0,2})$/i); const fileVersion=releaseAsset?.name.match(/(\d+\.\d+(?:\.\d+){0,2})/); const version=available?(tagVersion?.[1]||fileVersion?.[1]||'SETUP'):'SETUP';
+    const version=available?((releaseAsset.name.match(/(\d+\.\d+(?:\.\d+){1,2})/)||[])[1]||((releaseInfo?.tag_name||'').match(/(\d+\.\d+(?:\.\d+){1,2})/)||[])[1]||'SETUP'):'SETUP';
     if(versionBadge)versionBadge.textContent=version==='SETUP'?'SETUP':'v'+version;
     const productVersion=document.getElementById('productVersionBadge');
     if(productVersion)productVersion.textContent='MINI ADAM '+version;
@@ -236,21 +236,29 @@
     });
   }
 
+
+  const menuIconClosed={"viewBox": "0 0 448 512", "paths": ["M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"]};
+  const menuIconOpen={"viewBox": "0 0 384 512", "paths": ["M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"]};
+  function setMenuIcon(open){
+    const el=menuToggle?.querySelector('svg.icon');
+    if(!el)return;
+    const icon=open?menuIconOpen:menuIconClosed;
+    el.setAttribute('viewBox',icon.viewBox);
+    el.innerHTML=icon.paths.map(d=>'<path d="'+d+'"/>').join('');
+  }
   function initNavigation(){
     menuToggle?.addEventListener('click',()=>{
       const open=menuToggle.getAttribute('aria-expanded')!=='true';
       menuToggle.setAttribute('aria-expanded',String(open));
       siteNav?.classList.toggle('is-open',open);
       menuToggle.setAttribute('aria-label',language==='he'?(open?'סגור תפריט ניווט':'פתח תפריט ניווט'):(open?'Close navigation':'Open navigation'));
-      const menuIcon=menuToggle.querySelector('.icon');
-      if(menuIcon)menuIcon.textContent=open?'close':'menu';
+      setMenuIcon(open);
     });
     siteNav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
       siteNav.classList.remove('is-open');
       menuToggle?.setAttribute('aria-expanded','false');
       menuToggle?.setAttribute('aria-label',language==='he'?'פתח תפריט ניווט':'Open navigation');
-      const menuIcon=menuToggle?.querySelector('.icon');
-      if(menuIcon)menuIcon.textContent='menu';
+      setMenuIcon(false);
     }));
   }
   function initAccessibility(){
